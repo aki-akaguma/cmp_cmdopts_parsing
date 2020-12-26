@@ -1,0 +1,46 @@
+[package]
+name = "cmp_flood_tide"
+version = "0.1.1"
+authors = ["aki <aki.akaguma@hotmail.com>"]
+edition = "2018"
+
+[[bin]]
+name = "cmp_flood_tide-one"
+path = "src/main-one.rs"
+
+[[bin]]
+name = "cmp_flood_tide-curl"
+path = "src/main-curl.rs"
+
+[[bench]]
+name = "bench"
+harness = false
+
+[[bench]]
+name = "bench-cmp_flood_tide-one"
+path = "benches/bench-one.rs"
+harness = false
+
+[[bench]]
+name = "bench-cmp_flood_tide-curl"
+path = "benches/bench-curl.rs"
+harness = false
+
+[features]
+default = ["option_argument", "argument", "was_long", "single_error"]
+#default = ["option_argument", "argument", "was_long", "abbreviate"]
+option_argument = ["flood-tide/option_argument"]
+argument = ["flood-tide/argument"]
+single_error = ["flood-tide/single_error"]
+abbreviate = ["flood-tide/abbreviate"]
+was_long = ["flood-tide/was_long"]
+
+[dependencies]
+optcolorwhen = { path="../common/optcolorwhen" }
+anyhow = "1.0"
+flood-tide = { version="0.1", default-features=false, features=["stop_at_mm"] }
+
+[dev-dependencies]
+exec-target-a = { path="../common/exec-target-a" }
+criterion = "0.3"
+criterion-cycles-per-byte = "0.1"

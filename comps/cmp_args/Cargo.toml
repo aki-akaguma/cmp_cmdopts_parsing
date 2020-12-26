@@ -1,0 +1,39 @@
+[package]
+name = "cmp_args"
+version = "0.1.1"
+authors = ["aki <aki.akaguma@hotmail.com>"]
+edition = "2018"
+
+[[bin]]
+name = "cmp_args-one"
+path = "src/main-one.rs"
+
+[[bin]]
+name = "cmp_args-curl"
+path = "src/main-curl.rs"
+
+[[bench]]
+name = "bench"
+harness = false
+
+[[bench]]
+name = "bench-cmp_args-one"
+path = "benches/bench-one.rs"
+harness = false
+
+[[bench]]
+name = "bench-cmp_args-curl"
+path = "benches/bench-curl.rs"
+harness = false
+
+[dependencies]
+optcolorwhen = { path="../common/optcolorwhen" }
+args_hcc = { path="../common/args-2.2.0-hcc" }
+getopts = "0.2"
+anyhow = "1.0"
+optpaerr-a = { path="../common/optpaerr-a", features=["option_argument","argument"] }
+
+[dev-dependencies]
+exec-target-a = { path="../common/exec-target-a" }
+criterion = "0.3"
+criterion-cycles-per-byte = "0.1"

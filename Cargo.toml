@@ -1,0 +1,30 @@
+[package]
+name = "cmp_cmdopts_parsing"
+version = "0.1.7"
+authors = ["aki <aki.akaguma@hotmail.com>"]
+description = "compare command option parser"
+keywords = ["parse", "option", "command", "flag", "research"]
+categories = ["command-line-interface"]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+edition = "2018"
+
+[workspace]
+members = [
+    "comps/cmp_null_void",
+    "comps/cmp_app",
+    "comps/cmp_argh",
+    "comps/cmp_args",
+    "comps/cmp_clap",
+    "comps/cmp_commander",
+    "comps/cmp_docopt",
+    "comps/cmp_flood_tide",
+    "comps/cmp_getopts",
+    "comps/cmp_gumdrop",
+    "comps/cmp_lapp",
+    "comps/cmp_pico_args",
+    "comps/cmp_pure_rust",
+    "comps/cmp_rustop",
+    "comps/cmp_structopt",
+    "xtask",
+]

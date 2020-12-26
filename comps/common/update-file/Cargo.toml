@@ -1,0 +1,8 @@
+[package]
+name = "update-file"
+version = "0.1.0"
+authors = ["aki <aki.akaguma@hotmail.com>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0"

@@ -1,0 +1,39 @@
+[package]
+name = "cmp_argh"
+version = "0.1.0"
+authors = ["aki <aki.akaguma@hotmail.com>"]
+edition = "2018"
+
+[[bin]]
+name = "cmp_argh-one"
+path = "src/main-one.rs"
+
+[[bin]]
+name = "cmp_argh-curl"
+path = "src/main-curl.rs"
+
+[[bench]]
+name = "bench"
+harness = false
+
+[[bench]]
+name = "bench-cmp_argh-one"
+path = "benches/bench-one.rs"
+harness = false
+
+[[bench]]
+name = "bench-cmp_argh-curl"
+path = "benches/bench-curl.rs"
+harness = false
+
+[dependencies]
+optcolorwhen = { path="../common/optcolorwhen" }
+argh = "0.1"
+simple-error = "0.2"
+anyhow = "1.0"
+optpaerr-a = { path="../common/optpaerr-a" }
+
+[dev-dependencies]
+exec-target-a = { path="../common/exec-target-a" }
+criterion = "0.3"
+criterion-cycles-per-byte = "0.1"

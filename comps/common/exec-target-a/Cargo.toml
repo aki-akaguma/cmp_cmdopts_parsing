@@ -1,0 +1,19 @@
+[package]
+name = "exec-target-a"
+version = "0.1.7"
+authors = ["aki <aki.akaguma@hotmail.com>"]
+description = """
+exec-target is simple invoke command
+"""
+keywords = ["assert", "text"]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+edition = "2018"
+
+[dependencies]
+
+[build-dependencies]
+rustc_version = "=0.2.3"
+
+#[workspace]
+#members = ["test-helper"]

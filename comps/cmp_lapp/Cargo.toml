@@ -1,0 +1,38 @@
+[package]
+name = "cmp_lapp"
+version = "0.1.1"
+authors = ["aki <aki.akaguma@hotmail.com>"]
+edition = "2018"
+
+[[bin]]
+name = "cmp_lapp-one"
+path = "src/main-one.rs"
+
+[[bin]]
+name = "cmp_lapp-curl"
+path = "src/main-curl.rs"
+
+[[bench]]
+name = "bench"
+harness = false
+
+[[bench]]
+name = "bench-cmp_lapp-one"
+path = "benches/bench-one.rs"
+harness = false
+
+[[bench]]
+name = "bench-cmp_lapp-curl"
+path = "benches/bench-curl.rs"
+harness = false
+
+[dependencies]
+optcolorwhen = { path="../common/optcolorwhen" }
+lapp = "0.4"
+anyhow = "1.0"
+optpaerr-a = { path="../common/optpaerr-a", features=["option_argument","argument"] }
+
+[dev-dependencies]
+exec-target-a = { path="../common/exec-target-a" }
+criterion = "0.3"
+criterion-cycles-per-byte = "0.1"

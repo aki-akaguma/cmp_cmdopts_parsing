@@ -1,0 +1,20 @@
+[package]
+name = "optpaerr-a"
+version = "0.1.8"
+authors = ["aki <aki.akaguma@hotmail.com>"]
+description = """
+optpaerr-a is error lib for cmp_cmd
+"""
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+edition = "2018"
+
+[features]
+default = ["std"]
+std = []
+option_argument = []
+argument = []
+ambiguous = []
+subcommand = []
+
+[dependencies]

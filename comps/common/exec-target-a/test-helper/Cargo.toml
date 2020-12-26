@@ -1,0 +1,16 @@
+[package]
+name = "test-helper"
+version = "0.1.0"
+edition = "2018"
+
+[[bin]]
+name = "exe-stab-cat"
+path = "src/exe-stab-cat.rs"
+
+[[bin]]
+name = "exe-stab-env"
+path = "src/exe-stab-env.rs"
+
+[[bin]]
+name = "exe-stab-grep"
+path = "src/exe-stab-grep.rs"

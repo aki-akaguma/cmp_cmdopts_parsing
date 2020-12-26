@@ -1,0 +1,25 @@
+[package]
+name = "xtask"
+version = "0.1.0"
+authors = ["aki <aki.akaguma@hotmail.com>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0"
+regex = "1.4"
+
+cmp_null_void_xtask = { path="../comps/cmp_null_void/xtask" }
+cmp_app_xtask = { path="../comps/cmp_app/xtask" }
+cmp_argh_xtask = { path="../comps/cmp_argh/xtask" }
+cmp_args_xtask = { path="../comps/cmp_args/xtask" }
+cmp_clap_xtask = { path="../comps/cmp_clap/xtask" }
+cmp_commander_xtask = { path="../comps/cmp_commander/xtask" }
+cmp_docopt_xtask = { path="../comps/cmp_docopt/xtask" }
+cmp_flood_tide_xtask = { path="../comps/cmp_flood_tide/xtask" }
+cmp_getopts_xtask = { path="../comps/cmp_getopts/xtask" }
+cmp_gumdrop_xtask = { path="../comps/cmp_gumdrop/xtask" }
+cmp_lapp_xtask = { path="../comps/cmp_lapp/xtask" }
+cmp_pico_args_xtask = { path="../comps/cmp_pico_args/xtask" }
+cmp_pure_rust_xtask = { path="../comps/cmp_pure_rust/xtask" }
+cmp_rustop_xtask = { path="../comps/cmp_rustop/xtask" }
+cmp_structopt_xtask = { path="../comps/cmp_structopt/xtask" }

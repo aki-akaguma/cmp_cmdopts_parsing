@@ -1,0 +1,19 @@
+[package]
+authors = ["aki", "Matthew Fornaciari <mattforni@gmail.com>"]
+description = "An argument parsing and validation library designed to take some of tediousness out of the general 'getopts' crate."
+documentation = "http://mattforni.github.io/rust/doc/args"
+homepage = "https://github.com/mattforni/args"
+keywords = ["args", "argument", "argv", "cli", "command"]
+license = "MIT"
+name = "args_hcc"
+readme = "README.md"
+repository = "https://github.com/mattforni/args"
+version = "2.2.0"
+
+[lib]
+name = "args_hcc"
+path = "src/lib.rs"
+
+[dependencies]
+getopts = "0"
+log = "0"
