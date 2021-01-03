@@ -2,6 +2,12 @@ TBD
 ===
 Unreleased changes. Release notes have not yet been written.
 
+0.1.8 (2021-01-03)
+=====
+
+* update rustc 1.49.0 (e1884a8e3 2020-12-29)
+* update crates
+
 0.1.7 (2020-12-26)
 =====
 
