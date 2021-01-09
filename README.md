@@ -34,7 +34,7 @@ At a glance
 - `delta` is the difference from cmp_null_void
 - `cmp_null_void` is non parser, support only `--help`, `--version`, and output
 - `cmp_pure_rust` is newly written with string match
-- rustc 1.49.0 (e1884a8e3 2020-12-29)
+- compile by rustc 1.49.0 (e1884a8e3 2020-12-29)
 - bench on intel Q6600 @ 2.40GHz
 
 - [clap](https://crates.io/crates/clap) - is the most popular and complete one
@@ -68,6 +68,6 @@ At a glance
 | cmp_app            | 2405.617 kc |  722 kib | 2403.699 kc |  386 kib |
 | cmp_docopt         | 5689.437 kc | 1710 kib | 5687.519 kc | 1375 kib |
 
-- rustc 1.50.0-beta.2 (25b3db3aa 2020-12-31)
+- compile by rustc 1.50.0-beta.2 (25b3db3aa 2020-12-31)
 
 ## What do you think? /:octocat:
