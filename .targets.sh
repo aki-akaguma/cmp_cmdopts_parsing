@@ -1,6 +1,6 @@
 TARGETS_GNU="
 armv7-gnu
-i586-gnu
+i686-gnu
 mipsel-gnu
 aarch64-gnu
 mips64-gnu
@@ -11,8 +11,8 @@ sparc64-gnu
 x86_64-gnu
 "
 TARGETS_MUSL="
-i586-musl
 armv7-musl
+i686-musl
 mipsel-musl
 aarch64-musl
 mips64-musl
