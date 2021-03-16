@@ -7,8 +7,8 @@ echo > z.test.log
 for nm in $NAMES; do
   echo "$nm :::"
   ( cd "comps/$nm" && {
-    env -u RUSTC_WRAPPER \
-      cargo test
+    cargo test
+    #env -u RUSTC_WRAPPER
     [ "$?" -eq "0" ] || exit "$?"
   })
   [ "$?" -eq "0" ] || exit "$?"

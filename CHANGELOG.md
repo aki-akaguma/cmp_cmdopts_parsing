@@ -2,6 +2,9 @@ TBD
 ===
 Unreleased changes. Release notes have not yet been written.
 
+0.1.9 (2021-03-16)
+=====
+
 * update depends
 * update crates: docopt 1.1.0 -> 1.1.1
 * update crates: flood-tide 0.1.19 -> 0.1.21

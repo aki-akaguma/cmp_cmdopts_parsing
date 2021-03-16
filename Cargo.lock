@@ -149,6 +149,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "14c189c53d098945499cdfa7ecc63567cf3886b3332b312a5b4585d8d3a6a610"
 
 [[package]]
+name = "case"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fd6c0e7b807d60291f42f33f58480c0bfafe28ed08286446f45e463728cf9c1c"
+
+[[package]]
 name = "cast"
 version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -270,7 +276,7 @@ dependencies = [
 
 [[package]]
 name = "cmp_cmdopts_parsing"
-version = "0.1.8"
+version = "0.1.9"
 
 [[package]]
 name = "cmp_commander"
@@ -321,7 +327,7 @@ dependencies = [
 
 [[package]]
 name = "cmp_flood_tide"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "criterion",
@@ -336,6 +342,7 @@ name = "cmp_flood_tide_xtask"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "flood-tide-gen",
  "optstr-curl",
  "update-file",
 ]
@@ -683,9 +690,20 @@ dependencies = [
 
 [[package]]
 name = "flood-tide"
-version = "0.1.19"
+version = "0.1.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4dadd503dc68d2508387fa922e48c84175914db9fad3a0759ced5c27c18e7f43"
+checksum = "301babf76cda470515c6b7cdc4730662d3f47a9dccda58d53145f2a7a89e42ed"
+
+[[package]]
+name = "flood-tide-gen"
+version = "0.1.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "90af46a8a10c1da60a26e40b7aa59ff78d3f4099f72a790cf164914b459d7516"
+dependencies = [
+ "anyhow",
+ "case",
+ "regex",
+]
 
 [[package]]
 name = "getopts"

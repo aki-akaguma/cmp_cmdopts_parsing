@@ -30,7 +30,7 @@ macro_rules! try_help_msg {
 
 macro_rules! version_msg {
     () => {
-        "cmp_flood_tide 0.1.1\n"
+        "cmp_flood_tide 0.1.2\n"
     };
 }
 

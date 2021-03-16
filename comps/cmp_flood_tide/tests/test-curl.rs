@@ -6,7 +6,7 @@ macro_rules! some_stdout {
     () => {
         concat!(
             "CmdOptConf {",
-            " opt_program: \"../../target/debug/cmp_flood_tide-curl\",",
+            " prog_name: \"../../target/debug/cmp_flood_tide-curl\",",
             " opt_abstract_unix_socket: \"\",",
             " opt_alt_svc: \"\",",
             " flg_anyauth: false,",

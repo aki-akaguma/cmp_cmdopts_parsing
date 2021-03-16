@@ -15,7 +15,7 @@ fn criterion_benchmark(c: &mut Criterion<CyclesPerByte>) {
     let env_args = &env_args;
     //
     let result_conf = cmp_flood_tide::curl::CmdOptConf {
-        opt_program: "prog".to_string(),
+        prog_name: "prog".to_string(),
         flg_append: true,
         opt_connect_timeout: 50,
         flg_ftp_pasv: true,

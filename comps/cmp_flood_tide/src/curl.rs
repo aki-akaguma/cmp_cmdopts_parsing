@@ -8,6 +8,7 @@ use flood_tide::Opt;
 use flood_tide::OptNum;
 
 use flood_tide::parse_simple_gnu_style;
+use flood_tide::HelpVersion;
 
 //----------------------------------------------------------------------
 include!("curl.cmd.help.rs.txt");
@@ -49,54 +50,7 @@ fn help_message(program: &str) -> String {
         ARGUMENTS_TEXT, EXAMPLES_TEXT].join("\n")
 }
 
-#[inline(never)]
-fn print_help_and_exit(conf: &CmdOptConf) {
-    print!("{}", help_message(&conf.opt_program));
-    std::process::exit(0);
-}
-
-#[inline(never)]
-fn print_version_and_exit(conf: &CmdOptConf) {
-    println!("{}", version_message(&conf.opt_program));
-    std::process::exit(0);
-}
-
-//#[inline(never)]
-fn value_to_string(nv: &NameVal<'_>) -> Result<String, OptParseError> {
-    match nv.val {
-        Some(x) => Ok(x.to_string()),
-        None => Err(OptParseError::missing_option_argument(&nv.opt.lon)),
-    }
-}
-
-//#[inline(never)]
-fn value_to_u32(nv: &NameVal<'_>) -> Result<u32, OptParseError> {
-    match nv.val {
-        Some(x) => match x.parse::<u32>() {
-            Ok(d) => Ok(d),
-            Err(err) => Err(OptParseError::invalid_option_argument(
-                &nv.opt.lon,
-                &err.to_string(),
-            )),
-        },
-        None => Err(OptParseError::missing_option_argument(&nv.opt.lon)),
-    }
-}
-
-//#[inline(never)]
-fn value_to_u64(nv: &NameVal<'_>) -> Result<u64, OptParseError> {
-    match nv.val {
-        Some(x) => match x.parse::<u64>() {
-            Ok(d) => Ok(d),
-            Err(err) => Err(OptParseError::invalid_option_argument(
-                &nv.opt.lon,
-                &err.to_string(),
-            )),
-        },
-        None => Err(OptParseError::missing_option_argument(&nv.opt.lon)),
-    }
-}
-
+//----------------------------------------------------------------------
 #[inline(never)]
 fn parse_match(conf: &mut CmdOptConf, nv: &NameVal<'_>) -> Result<(), OptParseError> {
     include!("curl.cmd.match.rs.txt");
@@ -104,12 +58,51 @@ fn parse_match(conf: &mut CmdOptConf, nv: &NameVal<'_>) -> Result<(), OptParseEr
 }
 
 pub fn parse_cmdopts(program: &str, args: &[&str]) -> anyhow::Result<CmdOptConf> {
+    match parse_cmdopts_0(program, args) {
+        Ok(a) => Ok(a),
+        Err(e) => Err(From::from(e))
+    }
+}
+
+#[cfg(feature = "single_error")]
+type OptErr = OptParseError;
+#[cfg(not(feature = "single_error"))]
+type OptErr = OptParseErrors;
+
+pub fn parse_cmdopts_0(a_prog_name: &str, args: &[&str]) -> Result<CmdOptConf, OptErr> {
     //
     let mut conf = CmdOptConf {
-        opt_program: program.to_string(),
+        prog_name: a_prog_name.to_string(),
         ..Default::default()
     };
     let (opt_free, r_errs) = parse_simple_gnu_style(&mut conf, &OPT_ARY, &OPT_ARY_SHO_IDX, args, parse_match);
+    //
+    #[cfg(feature = "single_error")]
+    {
+        if conf.is_help() {
+            return Err(From::from(OptParseError::help_message(&help_message(&conf.prog_name))));
+        }
+        if conf.is_version() {
+            return Err(From::from(OptParseError::version_message(&version_message(
+                &conf.prog_name,
+            ))));
+        }
+    }
+    #[cfg(not(feature = "single_error"))]
+    {
+        if conf.is_help() {
+            let mut errs = OptParseErrors::new();
+            errs.push(OptParseError::help_message(&help_message(&conf.prog_name)));
+            return Err(errs);
+        }
+        if conf.is_version() {
+            let mut errs = OptParseErrors::new();
+            errs.push(OptParseError::version_message(&version_message(
+                &conf.prog_name,
+            )));
+            return Err(errs);
+        }
+    }
     //
     #[cfg(feature = "single_error")]
     {
