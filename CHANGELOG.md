@@ -2,7 +2,11 @@ TBD
 ===
 Unreleased changes. Release notes have not yet been written.
 
-* update crates
+* update depends
+* update crates: docopt 1.1.0 -> 1.1.1
+* update crates: flood-tide 0.1.19 -> 0.1.21
+* update crates: pico-args 0.3.4 -> 0.4.0
+* remove docopt: because of unmaintained
 
 0.1.8 (2021-01-03)
 =====

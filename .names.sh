@@ -5,7 +5,6 @@ cmp_argh
 cmp_args
 cmp_clap
 cmp_commander
-cmp_docopt
 cmp_flood_tide
 cmp_getopts
 cmp_gumdrop
@@ -14,4 +13,8 @@ cmp_pico_args
 cmp_pure_rust
 cmp_rustop
 cmp_structopt
+"
+
+NAMES_0="
+cmp_docopt
 "

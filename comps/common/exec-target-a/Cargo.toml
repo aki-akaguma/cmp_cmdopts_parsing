@@ -13,7 +13,7 @@ edition = "2018"
 [dependencies]
 
 [build-dependencies]
-rustc_version = "=0.2.3"
+rustc_version = "0.3"
 
 #[workspace]
 #members = ["test-helper"]

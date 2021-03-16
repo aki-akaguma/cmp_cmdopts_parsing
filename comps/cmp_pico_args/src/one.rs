@@ -88,7 +88,15 @@ pub fn parse_cmdopts(
         .unwrap_or(OptColorWhen::Auto);
     args.opt_config = pico_args.opt_value_from_str(["-c", "--config"])?;
     //
-    let free = pico_args.free()?;
+    let mut free: Vec<String> = Vec::new();
+    loop {
+        match pico_args.free_from_str() {
+            Ok(s) => free.push(s),
+            Err(_e) => break,
+        }
+    }
+    //assert_eq!(format!("{:?}", free), "");
+    //let free = pico_args.free()?;
     if !free.is_empty() {
         args.arg_input = free[0].clone();
         args.arg_output = if free.len() > 1 {

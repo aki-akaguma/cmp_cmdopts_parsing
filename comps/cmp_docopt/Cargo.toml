@@ -28,7 +28,7 @@ harness = false
 
 [dependencies]
 optcolorwhen = { path="../common/optcolorwhen" }
-docopt = "1.1"
+docopt = "=1.1.1"
 serde_derive = "1.0"
 serde = "1.0"
 anyhow = "1.0"

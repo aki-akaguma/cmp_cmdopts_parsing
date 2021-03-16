@@ -123,7 +123,14 @@ pub fn parse_cmdopts(
     let mut pico_args = pico_args::Arguments::from_vec(env_args);
     include!("curl.cmd.match.rs.txt");
     //
-    let free = pico_args.free()?;
+    let mut free: Vec<String> = Vec::new();
+    loop {
+        match pico_args.free_from_str() {
+            Ok(s) => free.push(s),
+            Err(_e) => break,
+        }
+    }
+    //let free = pico_args.free()?;
     if !free.is_empty() {
         let iter = free.iter();
         conf.arg_params.extend(iter.map(|s| s.to_string()));
