@@ -2,6 +2,8 @@ TBD
 ===
 Unreleased changes. Release notes have not yet been written.
 
+* update depends: anyhow, js-sys, libc, memoffset, serde ...
+
 0.1.9 (2021-03-16)
 =====
 
