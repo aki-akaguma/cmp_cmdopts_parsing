@@ -38,7 +38,7 @@ was_long = ["flood-tide/was_long"]
 [dependencies]
 optcolorwhen = { path="../common/optcolorwhen" }
 anyhow = "1.0"
-flood-tide = { version="=0.1.21", default-features=false, features=["stop_at_mm"] }
+flood-tide = { version="=0.2.0", default-features=false, features=["stop_at_mm"] }
 
 [dev-dependencies]
 exec-target-a = { path="../common/exec-target-a" }

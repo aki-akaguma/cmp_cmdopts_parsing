@@ -2,7 +2,13 @@ TBD
 ===
 Unreleased changes. Release notes have not yet been written.
 
-* update depends: anyhow, js-sys, libc, memoffset, serde ...
+0.1.10 (2021-04-04)
+=====
+
+* update depends: anyhow(1.0.40): Reduce memory footprint of errors on Rust versions 1.51+
+* update depends: js-sys, libc, memoffset, serde ...
+* update depends: flood-tide(0.2.0)
+* update README.md: the results of compiled by rustc 1.51.0 (2fd73fabe 2021-03-23)
 
 0.1.9 (2021-03-16)
 =====
