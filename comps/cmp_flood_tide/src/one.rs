@@ -1,7 +1,7 @@
-use optcolorwhen::OptColorWhen;
 use flood_tide::OptParseError;
 #[cfg(not(feature = "single_error"))]
 use flood_tide::OptParseErrors;
+use optcolorwhen::OptColorWhen;
 use std::str::FromStr;
 
 //
@@ -253,10 +253,12 @@ pub fn create_conf() -> anyhow::Result<CmdOptConf> {
 #[cfg(test)]
 mod test {
     use flood_tide::check;
-    
+
     #[test]
     fn check() {
         assert!(check::check_sorted_opt_ary_and_sho_idx_ary_with(
-            &super::OPT_ARY, &super::OPT_ARY_SHO_IDX));
+            &super::OPT_ARY,
+            &super::OPT_ARY_SHO_IDX
+        ));
     }
 }

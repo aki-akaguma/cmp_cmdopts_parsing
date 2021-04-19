@@ -52,7 +52,7 @@ fn do_gen_src_match(vec_optstr: &[OptStr]) -> anyhow::Result<String> {
     //
     for rec in vec_optstr.iter() {
         let sholon = if !rec.lon.is_empty() {
-            rec.lon.replace("-","").clone()
+            rec.lon.replace("-", "").clone()
         } else {
             rec.sho.clone()
         };
@@ -107,11 +107,11 @@ fn do_gen_src_lex(vec_optstr: &[OptStr]) -> anyhow::Result<String> {
 "#;
     for rec in vec_optstr.iter() {
         let sholon = if !rec.sho.is_empty() && !rec.lon.is_empty() {
-            format!("-{}, --{}", rec.sho, rec.lon.replace("-",""))
+            format!("-{}, --{}", rec.sho, rec.lon.replace("-", ""))
         } else if !rec.sho.is_empty() {
             format!("-{}", rec.sho)
         } else {
-            format!("--{}", rec.lon.replace("-",""))
+            format!("--{}", rec.lon.replace("-", ""))
         };
         match rec.type_s.as_str() {
             "bool" => match rec.enum_s.as_str() {

@@ -237,7 +237,7 @@ macro_rules! some_stdout {
             " flg_version: false,",
             " arg_params: [\"http://url1.com\"] }\n",
         )
-    }
+    };
 }
 
 #[test]

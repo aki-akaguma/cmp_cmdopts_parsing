@@ -22,9 +22,9 @@ extern crate core;
 
 use alloc::fmt::Error;
 use alloc::fmt::Formatter;
-use alloc::vec::Vec;
-use alloc::string::String;
 use alloc::slice::Iter;
+use alloc::string::String;
+use alloc::vec::Vec;
 
 use alloc::fmt::Display;
 use alloc::string::ToString;

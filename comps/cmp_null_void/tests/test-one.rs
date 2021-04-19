@@ -3,23 +3,23 @@ use exec_target_a::exec_target;
 const TARGET_EXE_PATH: &'static str = "../../target/debug/cmp_null_void-one";
 
 macro_rules! help_msg {
-  () => {
-    concat!(
-        "Usage: cmp_null_void [options] <input> [<output>]\n",
-        "Options:\n",
-        "    -h, --help          Print this help menu\n",
-        "    -V, --version       Print version information\n",
-        "    -d, --debug         Activate debug mode\n",
-        "    -v, --verbose       Verbose mode. -vv is more verbose\n",
-        "    -s, --speed <speed> Set speed (default: 42.0)\n",
-        "    --color <when>      Use markers to highlight (default: auto)\n",
-        "                        <when> is \'always\', \'never\', or \'auto\'\n",
-        "    -c, --config <path> Give a path string argument\n",
-        "Args:\n",
-        "    <input>             Input file name\n",
-        "    [<output>]          Output file name, stdout if not present\n"
-    )
-  }
+    () => {
+        concat!(
+            "Usage: cmp_null_void [options] <input> [<output>]\n",
+            "Options:\n",
+            "    -h, --help          Print this help menu\n",
+            "    -V, --version       Print version information\n",
+            "    -d, --debug         Activate debug mode\n",
+            "    -v, --verbose       Verbose mode. -vv is more verbose\n",
+            "    -s, --speed <speed> Set speed (default: 42.0)\n",
+            "    --color <when>      Use markers to highlight (default: auto)\n",
+            "                        <when> is \'always\', \'never\', or \'auto\'\n",
+            "    -c, --config <path> Give a path string argument\n",
+            "Args:\n",
+            "    <input>             Input file name\n",
+            "    [<output>]          Output file name, stdout if not present\n"
+        )
+    };
 }
 
 macro_rules! version_msg {

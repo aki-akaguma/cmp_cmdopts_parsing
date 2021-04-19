@@ -61,10 +61,7 @@ fn parse_color(s: &str) -> Result<OptColorWhen, String> {
 }
 
 #[inline(never)]
-pub fn parse_cmdopts(
-    _program: &str,
-    env_args: Vec<OsString>,
-) -> anyhow::Result<CmdOptConf> {
+pub fn parse_cmdopts(_program: &str, env_args: Vec<OsString>) -> anyhow::Result<CmdOptConf> {
     let mut pico_args = pico_args::Arguments::from_vec(env_args);
 
     //
@@ -111,10 +108,7 @@ pub fn parse_cmdopts(
     Ok(args)
 }
 
-pub fn parse_cmdopts_str(
-    program: &str,
-    env_args: Vec<&str>,
-) -> anyhow::Result<CmdOptConf> {
+pub fn parse_cmdopts_str(program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdOptConf> {
     let env_args: Vec<OsString> = env_args.iter().map(OsString::from).collect();
     parse_cmdopts(program, env_args)
 }

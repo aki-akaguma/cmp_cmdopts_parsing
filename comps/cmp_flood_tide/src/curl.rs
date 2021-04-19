@@ -60,7 +60,7 @@ fn parse_match(conf: &mut CmdOptConf, nv: &NameVal<'_>) -> Result<(), OptParseEr
 pub fn parse_cmdopts(program: &str, args: &[&str]) -> anyhow::Result<CmdOptConf> {
     match parse_cmdopts_0(program, args) {
         Ok(a) => Ok(a),
-        Err(e) => Err(From::from(e))
+        Err(e) => Err(From::from(e)),
     }
 }
 
@@ -75,17 +75,20 @@ pub fn parse_cmdopts_0(a_prog_name: &str, args: &[&str]) -> Result<CmdOptConf, O
         prog_name: a_prog_name.to_string(),
         ..Default::default()
     };
-    let (opt_free, r_errs) = parse_simple_gnu_style(&mut conf, &OPT_ARY, &OPT_ARY_SHO_IDX, args, parse_match);
+    let (opt_free, r_errs) =
+        parse_simple_gnu_style(&mut conf, &OPT_ARY, &OPT_ARY_SHO_IDX, args, parse_match);
     //
     #[cfg(feature = "single_error")]
     {
         if conf.is_help() {
-            return Err(From::from(OptParseError::help_message(&help_message(&conf.prog_name))));
-        }
-        if conf.is_version() {
-            return Err(From::from(OptParseError::version_message(&version_message(
+            return Err(From::from(OptParseError::help_message(&help_message(
                 &conf.prog_name,
             ))));
+        }
+        if conf.is_version() {
+            return Err(From::from(OptParseError::version_message(
+                &version_message(&conf.prog_name),
+            )));
         }
     }
     #[cfg(not(feature = "single_error"))]
@@ -156,10 +159,12 @@ pub fn create_conf() -> anyhow::Result<CmdOptConf> {
 #[cfg(test)]
 mod test {
     use flood_tide::check;
-    
+
     #[test]
     fn check() {
         assert!(check::check_sorted_opt_ary_and_sho_idx_ary_with(
-            &super::OPT_ARY, &super::OPT_ARY_SHO_IDX));
+            &super::OPT_ARY,
+            &super::OPT_ARY_SHO_IDX
+        ));
     }
 }

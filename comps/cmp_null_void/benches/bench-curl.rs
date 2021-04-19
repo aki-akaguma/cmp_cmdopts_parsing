@@ -28,9 +28,11 @@ fn criterion_benchmark(c: &mut Criterion<CyclesPerByte>) {
         }
     }
     //
-    c.bench_function("cmp_null_void::curl::", |b| b.iter(|| {
-        let _r = process_one(criterion::black_box(env_args));
-    }));
+    c.bench_function("cmp_null_void::curl::", |b| {
+        b.iter(|| {
+            let _r = process_one(criterion::black_box(env_args));
+        })
+    });
 }
 
 criterion_group!(

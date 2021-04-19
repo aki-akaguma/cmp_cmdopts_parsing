@@ -19,10 +19,7 @@ pub struct CmdOptConf {
 
 //----------------------------------------------------------------------
 #[inline(never)]
-pub fn parse_cmdopts(
-    _program: &str,
-    env_args: Vec<String>,
-) -> anyhow::Result<CmdOptConf> {
+pub fn parse_cmdopts(_program: &str, env_args: Vec<String>) -> anyhow::Result<CmdOptConf> {
     let cmd = Commander::new()
         .version(env!("CARGO_PKG_VERSION"))
         .exec(env!("CARGO_PKG_NAME"))
@@ -84,10 +81,7 @@ pub fn parse_cmdopts(
     Ok(coa)
 }
 
-pub fn parse_cmdopts_str(
-    program: &str,
-    env_args: Vec<&str>,
-) -> anyhow::Result<CmdOptConf> {
+pub fn parse_cmdopts_str(program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdOptConf> {
     let env_args: Vec<String> = env_args.iter().map(|s| s.to_string()).collect();
     parse_cmdopts(program, env_args)
 }

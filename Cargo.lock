@@ -156,9 +156,9 @@ checksum = "fd6c0e7b807d60291f42f33f58480c0bfafe28ed08286446f45e463728cf9c1c"
 
 [[package]]
 name = "cast"
-version = "0.2.3"
+version = "0.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4b9434b9a5aa1450faa3f9cb14ea0e8c53bb5d2b3c1bfd1ab4fc03e9f33fbfb0"
+checksum = "cc38c385bfd7e444464011bb24820f40dd1c76bcdfa1b78611cb7c2e5cafab75"
 dependencies = [
  "rustc_version 0.2.3",
 ]
@@ -276,7 +276,7 @@ dependencies = [
 
 [[package]]
 name = "cmp_cmdopts_parsing"
-version = "0.1.10"
+version = "0.1.11"
 
 [[package]]
 name = "cmp_commander"
@@ -587,9 +587,9 @@ dependencies = [
 
 [[package]]
 name = "crossbeam-channel"
-version = "0.5.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dca26ee1f8d361640700bde38b2c37d8c22b3ce2d360e1fc1c74ea4b0aa7d775"
+checksum = "06ed27e177f16d65f0f0c22a213e17c696ace5dd64b14258b52f9417ccb52db4"
 dependencies = [
  "cfg-if",
  "crossbeam-utils",
@@ -696,9 +696,9 @@ checksum = "5c5a6ce2d4a1a36aff00d09c00a913bb5857429c8c9d9d0efb08d9f5bf01e908"
 
 [[package]]
 name = "flood-tide-gen"
-version = "0.1.7"
+version = "0.1.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dc7e1fe5209b03b580fcf411d6bb07525c0d0e3f0cd35de780f7644c0f1034a7"
+checksum = "469e18a69e9e1114705aae74ba817afaa445c2f57a54985e3b6f61865c91f179"
 dependencies = [
  "anyhow",
  "case",
@@ -822,9 +822,9 @@ checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 
 [[package]]
 name = "libc"
-version = "0.2.92"
+version = "0.2.93"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "56d855069fafbb9b344c0f962150cd2c1187975cb1c22c1522c240d8c4986714"
+checksum = "9385f66bf6105b241aa65a61cb923ef20efc665cb9f9bb50ac2f0c4b7f378d41"
 
 [[package]]
 name = "log"
@@ -1235,9 +1235,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "1.0.68"
+version = "1.0.69"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3ce15dd3ed8aa2f8eeac4716d6ef5ab58b6b9256db41d7e1a0224c2788e8fd87"
+checksum = "48fe99c6bd8b1cc636890bcc071842de909d902c81ac7dab53ba33c421ab8ffb"
 dependencies = [
  "proc-macro2",
  "quote",

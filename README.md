@@ -14,20 +14,20 @@ At a glance
 
 |       `name`       |   `bench`   | `.text`  |  `Δ bench`  | `Δ .text` |
 |:-------------------|------------:|---------:|------------:|---------:|
-| cmp_null_void      |    1.334 kc |  330 kib |    0.000 kc |    0 kib |
-| cmp_flood_tide     |    6.786 kc |  380 kib |    5.452 kc |   50 kib |
-| cmp_gumdrop        |   11.413 kc |  447 kib |   10.080 kc |  116 kib |
-| cmp_pure_rust      |   13.801 kc |  390 kib |   12.468 kc |   60 kib |
-| cmp_argh           |   24.139 kc |  415 kib |   22.805 kc |   85 kib |
-| cmp_pico_args      |  152.601 kc |  449 kib |  151.267 kc |  118 kib |
-| cmp_rustop         |  444.227 kc |  504 kib |  442.893 kc |  174 kib |
-| cmp_clap           |  487.033 kc |  924 kib |  485.699 kc |  594 kib |
-| cmp_structopt      |  690.881 kc | 1059 kib |  689.547 kc |  728 kib |
-| cmp_getopts        |  694.342 kc |  416 kib |  693.009 kc |   86 kib |
-| cmp_commander      |  742.975 kc |  429 kib |  741.642 kc |   99 kib |
-| cmp_lapp           | 1136.764 kc |  468 kib | 1135.430 kc |  138 kib |
-| cmp_args           | 2059.021 kc |  478 kib | 2057.687 kc |  148 kib |
-| cmp_app            | 2429.720 kc |  718 kib | 2428.386 kc |  388 kib |
+| cmp_null_void      |    1.366 kc |  330 kib |    0.000 kc |    0 kib |
+| cmp_flood_tide     |    6.449 kc |  380 kib |    5.083 kc |   50 kib |
+| cmp_gumdrop        |   11.233 kc |  447 kib |    9.867 kc |  116 kib |
+| cmp_pure_rust      |   13.907 kc |  390 kib |   12.541 kc |   60 kib |
+| cmp_argh           |   24.442 kc |  415 kib |   23.077 kc |   85 kib |
+| cmp_pico_args      |  149.185 kc |  449 kib |  147.819 kc |  118 kib |
+| cmp_rustop         |  442.775 kc |  504 kib |  441.410 kc |  174 kib |
+| cmp_clap           |  505.692 kc |  924 kib |  504.326 kc |  594 kib |
+| cmp_getopts        |  692.690 kc |  416 kib |  691.325 kc |   86 kib |
+| cmp_structopt      |  719.264 kc | 1059 kib |  717.899 kc |  728 kib |
+| cmp_commander      |  725.301 kc |  429 kib |  723.935 kc |   99 kib |
+| cmp_lapp           | 1103.033 kc |  468 kib | 1101.667 kc |  138 kib |
+| cmp_args           | 2062.643 kc |  478 kib | 2061.278 kc |  148 kib |
+| cmp_app            | 2455.194 kc |  718 kib | 2453.829 kc |  388 kib |
 
 - `kc` is kilo cycles, cycles is cpu clock cycles, lower is better
 - `.text` is elf .text section size

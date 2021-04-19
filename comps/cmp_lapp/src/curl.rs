@@ -1,4 +1,3 @@
-
 //----------------------------------------------------------------------
 include!("curl.cmd.help.rs.txt");
 
@@ -82,10 +81,7 @@ pub fn parse_cmdopts(program: &str, args: Vec<String>) -> anyhow::Result<CmdOptC
 }
 
 //----------------------------------------------------------------------
-pub fn parse_cmdopts_str(
-    program: &str,
-    env_args: &[&str],
-) -> anyhow::Result<CmdOptConf> {
+pub fn parse_cmdopts_str(program: &str, env_args: &[&str]) -> anyhow::Result<CmdOptConf> {
     let env_args: Vec<String> = env_args.iter().map(|s| s.to_string()).collect();
     parse_cmdopts(program, env_args)
 }

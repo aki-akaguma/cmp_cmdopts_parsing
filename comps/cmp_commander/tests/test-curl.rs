@@ -238,7 +238,7 @@ macro_rules! some_stdout {
             " flg_version: false,",
             " arg_params: [] }\n",
         )
-    }
+    };
 }
 
 #[test]

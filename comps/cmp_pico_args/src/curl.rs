@@ -60,9 +60,7 @@ fn value_to_string(
     match value {
         Ok(value) => match value {
             Some(x) => Ok(x),
-            None => Err(From::from(
-                OptParseError::missing_option_argument(cur_s),
-            )),
+            None => Err(From::from(OptParseError::missing_option_argument(cur_s))),
         },
         Err(err) => Err(From::from(err)),
     }
@@ -77,13 +75,12 @@ fn value_to_u32(
         Ok(value) => match value {
             Some(x) => match x.parse::<u32>() {
                 Ok(d) => Ok(d),
-                Err(err) => Err(From::from(
-                    OptParseError::invalid_option_argument(cur_s, &err.to_string()),
-                )),
+                Err(err) => Err(From::from(OptParseError::invalid_option_argument(
+                    cur_s,
+                    &err.to_string(),
+                ))),
             },
-            None => Err(From::from(
-                OptParseError::missing_option_argument(cur_s),
-            )),
+            None => Err(From::from(OptParseError::missing_option_argument(cur_s))),
         },
         Err(err) => Err(From::from(err)),
     }
@@ -98,23 +95,19 @@ fn value_to_u64(
         Ok(value) => match value {
             Some(x) => match x.parse::<u64>() {
                 Ok(d) => Ok(d),
-                Err(err) => Err(From::from(
-                    OptParseError::invalid_option_argument(cur_s, &err.to_string()),
-                )),
+                Err(err) => Err(From::from(OptParseError::invalid_option_argument(
+                    cur_s,
+                    &err.to_string(),
+                ))),
             },
-            None => Err(From::from(
-                OptParseError::missing_option_argument(cur_s),
-            )),
+            None => Err(From::from(OptParseError::missing_option_argument(cur_s))),
         },
         Err(err) => Err(From::from(err)),
     }
 }
 
 #[inline(never)]
-pub fn parse_cmdopts(
-    program: &str,
-    env_args: Vec<OsString>,
-) -> anyhow::Result<CmdOptConf> {
+pub fn parse_cmdopts(program: &str, env_args: Vec<OsString>) -> anyhow::Result<CmdOptConf> {
     let mut conf = CmdOptConf {
         opt_program: program.to_string(),
         ..Default::default()
@@ -141,10 +134,7 @@ pub fn parse_cmdopts(
     Ok(conf)
 }
 
-pub fn parse_cmdopts_str(
-    program: &str,
-    env_args: Vec<&str>,
-) -> anyhow::Result<CmdOptConf> {
+pub fn parse_cmdopts_str(program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdOptConf> {
     let env_args: Vec<OsString> = env_args.iter().map(OsString::from).collect();
     parse_cmdopts(program, env_args)
 }

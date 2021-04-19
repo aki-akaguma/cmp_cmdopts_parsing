@@ -237,7 +237,7 @@ macro_rules! some_stdout {
             " flag_version: false,",
             " arg_getting_url: \"http://url1.com\" }\n",
         )
-    }
+    };
 }
 
 #[test]

@@ -194,7 +194,6 @@ fn test_invalid_color2() {
     assert_eq!(oup.stderr, concat!("Unrecognized argument: --color=\n\n",));
 }
 
-
 #[test]
 fn test_abbreviate_options() {
     #[rustfmt::skip]
@@ -216,4 +215,3 @@ fn test_ambiguous_options() {
     assert_eq!(oup.stdout, "");
     assert_eq!(oup.stderr, "Unrecognized argument: --ver\n\n");
 }
-

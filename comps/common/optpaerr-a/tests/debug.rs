@@ -1,6 +1,6 @@
 mod size_check {
-    use optpaerr_5::OptParseErrorKind;
     use optpaerr_5::OptParseError;
+    use optpaerr_5::OptParseErrorKind;
     use optpaerr_5::OptParseErrors;
     #[test]
     fn test_size() {
@@ -13,8 +13,8 @@ mod size_check {
     }
 }
 mod fmt_debug {
-    use optpaerr_5::OptParseErrorKind;
     use optpaerr_5::OptParseError;
+    use optpaerr_5::OptParseErrorKind;
     use optpaerr_5::OptParseErrors;
     //
     #[test]
