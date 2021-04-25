@@ -690,9 +690,9 @@ dependencies = [
 
 [[package]]
 name = "flood-tide"
-version = "0.2.0"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5c5a6ce2d4a1a36aff00d09c00a913bb5857429c8c9d9d0efb08d9f5bf01e908"
+checksum = "4acfe0a348b6401ba7f45cb71ff59ea73a3be325b4eeb30594bfe70bc116fb74"
 
 [[package]]
 name = "flood-tide-gen"

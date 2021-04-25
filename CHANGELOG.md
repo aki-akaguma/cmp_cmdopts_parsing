@@ -2,6 +2,8 @@ TBD
 ===
 Unreleased changes. Release notes have not yet been written.
 
+* update depends: flood-tide(0.2.1)
+
 0.1.12 (2021-04-25)
 =====
 
