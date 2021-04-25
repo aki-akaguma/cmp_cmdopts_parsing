@@ -2,6 +2,11 @@ TBD
 ===
 Unreleased changes. Release notes have not yet been written.
 
+0.1.12 (2021-04-25)
+=====
+
+* update depends: flood-tide-gen(0.1.12), regex(1.4.6)
+
 0.1.11 (2021-04-19)
 =====
 

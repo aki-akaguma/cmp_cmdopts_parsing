@@ -276,7 +276,7 @@ dependencies = [
 
 [[package]]
 name = "cmp_cmdopts_parsing"
-version = "0.1.11"
+version = "0.1.12"
 
 [[package]]
 name = "cmp_commander"
@@ -696,9 +696,9 @@ checksum = "5c5a6ce2d4a1a36aff00d09c00a913bb5857429c8c9d9d0efb08d9f5bf01e908"
 
 [[package]]
 name = "flood-tide-gen"
-version = "0.1.10"
+version = "0.1.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "469e18a69e9e1114705aae74ba817afaa445c2f57a54985e3b6f61865c91f179"
+checksum = "37f94ddabe5084c2cf9afe9511f90789aefab008a74918b68e5fa7d551476a55"
 dependencies = [
  "anyhow",
  "case",
@@ -1026,9 +1026,9 @@ dependencies = [
 
 [[package]]
 name = "regex"
-version = "1.4.5"
+version = "1.4.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "957056ecddbeba1b26965114e191d2e8589ce74db242b6ea25fc4062427a5c19"
+checksum = "2a26af418b574bd56588335b3a3659a65725d4e636eb1016c2f9e3b38c7cc759"
 dependencies = [
  "aho-corasick",
  "memchr",
@@ -1235,9 +1235,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "1.0.69"
+version = "1.0.70"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "48fe99c6bd8b1cc636890bcc071842de909d902c81ac7dab53ba33c421ab8ffb"
+checksum = "b9505f307c872bab8eb46f77ae357c8eba1fdacead58ee5a850116b1d7f82883"
 dependencies = [
  "proc-macro2",
  "quote",
