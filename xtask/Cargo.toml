@@ -23,3 +23,6 @@ cmp_pico_args_xtask = { path="../comps/cmp_pico_args/xtask" }
 cmp_pure_rust_xtask = { path="../comps/cmp_pure_rust/xtask" }
 cmp_rustop_xtask = { path="../comps/cmp_rustop/xtask" }
 cmp_structopt_xtask = { path="../comps/cmp_structopt/xtask" }
+
+[build-dependencies]
+rustc_version = "0.3"

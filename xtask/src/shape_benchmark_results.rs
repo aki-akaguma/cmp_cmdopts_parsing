@@ -134,12 +134,40 @@ fn get_bench(in_file: &str) -> anyhow::Result<Vec<BenchStr>> {
 }
 
 fn normalize_name(name_s: &str) -> anyhow::Result<String> {
-    let name_s = if let Some(x) = name_s.strip_suffix("::curl::") {
+    fn strip_prefix<'a, 'b>(x: &'a str, prefix: &'b str) -> Option<&'a str> {
+        #[cfg(not(has_not_strip_prefix))]
+        {
+            x.strip_prefix(prefix)
+        }
+        #[cfg(has_not_strip_prefix)]
+        {
+            if x.starts_with(&prefix) && x.len() > prefix.len() {
+                Some(&x[prefix.len()..])
+            } else {
+                None
+            }
+        }
+    }
+    fn strip_suffix<'a, 'b>(x: &'a str, suffix: &'b str) -> Option<&'a str> {
+        #[cfg(not(has_not_strip_prefix))]
+        {
+            x.strip_suffix(suffix)
+        }
+        #[cfg(has_not_strip_prefix)]
+        {
+            if x.ends_with(&suffix) && x.len() > suffix.len() {
+                Some(&x[0..(x.len() - suffix.len())])
+            } else {
+                None
+            }
+        }
+    }
+    let name_s = if let Some(x) = strip_suffix(name_s, "::curl::") {
         x
     } else {
         name_s
     };
-    let name = if let Some(x) = name_s.strip_prefix("cmp_optpa_ut_") {
+    let name = if let Some(x) = strip_prefix(name_s, "cmp_optpa_ut_") {
         format!("cmp_optpa_util_{}", x)
     } else {
         name_s.to_string()

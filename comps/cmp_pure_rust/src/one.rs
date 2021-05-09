@@ -39,6 +39,21 @@ fn full_usage(program: &str) -> String {
 }
 
 fn normalize_cmdopts(args: Vec<&str>) -> Vec<String> {
+    fn strip_prefix<'a>(x: &'a str, prefix: char) -> Option<&'a str> {
+        #[cfg(not(has_not_strip_prefix))]
+        {
+            x.strip_prefix(prefix)
+        }
+        #[cfg(has_not_strip_prefix)]
+        {
+            let prefix_s: String = prefix.to_string();
+            if x.starts_with(&prefix_s) && x.len() > prefix_s.len() {
+                Some(&x[prefix_s.len()..])
+            } else {
+                None
+            }
+        }
+    }
     let mut rargs: Vec<String> = Vec::with_capacity(args.len());
     for x in args {
         if x.starts_with("--") {
@@ -51,7 +66,7 @@ fn normalize_cmdopts(args: Vec<&str>) -> Vec<String> {
                     rargs.push(x.to_string());
                 }
             };
-        } else if let Some(xx) = x.strip_prefix('-') {
+        } else if let Some(xx) = strip_prefix(x, '-') {
             for c in xx.chars() {
                 let mut s = String::new();
                 s.push('-');

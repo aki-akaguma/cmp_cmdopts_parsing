@@ -12,29 +12,49 @@ The compile option is `--relese` and `LTS=false` is specified.
 I benchmarked various command line parsers with commands that emulate `curl` with 229 options.
 At a glance
 
+- compiled by rustc 1.52.0 (88f19c6da 2021-05-03)
+
 |       `name`       |   `bench`   | `.text`  |  `Δ bench`  | `Δ .text` |
 |:-------------------|------------:|---------:|------------:|---------:|
-| cmp_null_void      |    1.366 kc |  330 kib |    0.000 kc |    0 kib |
-| cmp_flood_tide     |    6.449 kc |  380 kib |    5.083 kc |   50 kib |
-| cmp_gumdrop        |   11.233 kc |  447 kib |    9.867 kc |  116 kib |
-| cmp_pure_rust      |   13.907 kc |  390 kib |   12.541 kc |   60 kib |
-| cmp_argh           |   24.442 kc |  415 kib |   23.077 kc |   85 kib |
-| cmp_pico_args      |  149.185 kc |  449 kib |  147.819 kc |  118 kib |
-| cmp_rustop         |  442.775 kc |  504 kib |  441.410 kc |  174 kib |
-| cmp_clap           |  505.692 kc |  924 kib |  504.326 kc |  594 kib |
-| cmp_getopts        |  692.690 kc |  416 kib |  691.325 kc |   86 kib |
-| cmp_structopt      |  719.264 kc | 1059 kib |  717.899 kc |  728 kib |
-| cmp_commander      |  725.301 kc |  429 kib |  723.935 kc |   99 kib |
-| cmp_lapp           | 1103.033 kc |  468 kib | 1101.667 kc |  138 kib |
-| cmp_args           | 2062.643 kc |  478 kib | 2061.278 kc |  148 kib |
-| cmp_app            | 2455.194 kc |  718 kib | 2453.829 kc |  388 kib |
+| cmp_null_void      |    1.237 kc |  317 kib |    0.000 kc |    0 kib |
+| cmp_flood_tide     |    5.937 kc |  364 kib |    4.700 kc |   47 kib |
+| cmp_gumdrop        |   10.462 kc |  433 kib |    9.225 kc |  116 kib |
+| cmp_pure_rust      |   12.555 kc |  378 kib |   11.318 kc |   61 kib |
+| cmp_argh           |   23.902 kc |  399 kib |   22.665 kc |   82 kib |
+| cmp_pico_args      |  150.100 kc |  434 kib |  148.863 kc |  117 kib |
+| cmp_rustop         |  435.712 kc |  487 kib |  434.475 kc |  169 kib |
+| cmp_clap           |  499.099 kc |  924 kib |  497.862 kc |  607 kib |
+| cmp_getopts        |  681.282 kc |  401 kib |  680.045 kc |   84 kib |
+| cmp_structopt      |  726.490 kc | 1069 kib |  725.253 kc |  751 kib |
+| cmp_commander      |  727.466 kc |  414 kib |  726.230 kc |   96 kib |
+| cmp_lapp           | 1126.964 kc |  454 kib | 1125.727 kc |  137 kib |
+| cmp_args           | 2033.918 kc |  460 kib | 2032.681 kc |  142 kib |
+| cmp_app            | 2464.854 kc |  692 kib | 2463.617 kc |  375 kib |
+
+- compiled by rustc 1.41.1 (f3e1a954d 2020-02-24)
+
+|       `name`       |   `bench`   | `.text`  |  `Δ bench`  | `Δ .text` |
+|:-------------------|------------:|---------:|------------:|---------:|
+| cmp_null_void      |    1.193 kc |  248 kib |    0.000 kc |    0 kib |
+| cmp_flood_tide     |    7.145 kc |  315 kib |    5.953 kc |   67 kib |
+| cmp_gumdrop        |   13.283 kc |  429 kib |   12.090 kc |  180 kib |
+| cmp_pure_rust      |   18.806 kc |  340 kib |   17.613 kc |   91 kib |
+| cmp_argh           |   25.792 kc |  336 kib |   24.600 kc |   87 kib |
+| cmp_pico_args      |  174.907 kc |  375 kib |  173.714 kc |  127 kib |
+| cmp_rustop         |  472.151 kc |  442 kib |  470.959 kc |  194 kib |
+| cmp_clap           |  585.497 kc |  902 kib |  584.304 kc |  653 kib |
+| cmp_getopts        |  675.789 kc |  367 kib |  674.596 kc |  118 kib |
+| cmp_structopt      |  741.325 kc |  950 kib |  740.132 kc |  701 kib |
+| cmp_commander      | 1038.226 kc |  352 kib | 1037.033 kc |  103 kib |
+| cmp_lapp           | 1054.788 kc |  395 kib | 1053.595 kc |  146 kib |
+| cmp_args           | 2131.094 kc |  398 kib | 2129.901 kc |  149 kib |
+| cmp_app            | 2563.295 kc |  637 kib | 2562.103 kc |  388 kib |
 
 - `kc` is kilo cycles, cycles is cpu clock cycles, lower is better
 - `.text` is elf .text section size
 - `Δ` is delta, this is the difference from cmp_null_void
 - `cmp_null_void` is non parser, support only `--help`, `--version`, and output
 - `cmp_pure_rust` is newly written with string match
-- compiled by rustc 1.51.0 (2fd73fabe 2021-03-23)
 - bench on intel Q6600 @ 2.40GHz
 
 - [clap](https://crates.io/crates/clap) - is the most popular and complete one
@@ -46,28 +66,5 @@ At a glance
 - [getopts](https://crates.io/crates/getopts) - a simple use
 - [docopt](https://crates.io/crates/docopt) - a very simple use
 
-
-### rustc beta Benchmark Results
-
- i think that beta have a little better benchmark than stable
-
-|       `name`       |   `bench`   | `.text`  |  `Δ bench`  | `Δ .text` |
-|:-------------------|------------:|---------:|------------:|---------:|
-| cmp_null_void      |    1.251 kc |  317 kib |    0.000 kc |    0 kib |
-| cmp_flood_tide     |    5.686 kc |  364 kib |    4.434 kc |   47 kib |
-| cmp_gumdrop        |   10.799 kc |  433 kib |    9.547 kc |  116 kib |
-| cmp_pure_rust      |   11.928 kc |  378 kib |   10.677 kc |   61 kib |
-| cmp_argh           |   24.325 kc |  399 kib |   23.073 kc |   82 kib |
-| cmp_pico_args      |  149.897 kc |  433 kib |  148.645 kc |  116 kib |
-| cmp_rustop         |  439.588 kc |  486 kib |  438.337 kc |  169 kib |
-| cmp_clap           |  496.538 kc |  922 kib |  495.287 kc |  605 kib |
-| cmp_getopts        |  685.872 kc |  401 kib |  684.620 kc |   84 kib |
-| cmp_structopt      |  701.018 kc | 1066 kib |  699.767 kc |  749 kib |
-| cmp_commander      |  738.414 kc |  413 kib |  737.162 kc |   96 kib |
-| cmp_lapp           | 1106.056 kc |  454 kib | 1104.805 kc |  137 kib |
-| cmp_args           | 2034.455 kc |  459 kib | 2033.203 kc |  142 kib |
-| cmp_app            | 2390.462 kc |  691 kib | 2389.210 kc |  374 kib |
-
-- compiled by rustc 1.52.0-beta.2 (4f27db695 2021-03-26)
 
 ## What do you think? :octocat:
