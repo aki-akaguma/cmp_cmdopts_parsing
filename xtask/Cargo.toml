@@ -25,4 +25,4 @@ cmp_rustop_xtask = { path="../comps/cmp_rustop/xtask" }
 cmp_structopt_xtask = { path="../comps/cmp_structopt/xtask" }
 
 [build-dependencies]
-rustc_version = "0.3"
+rustc_version = "0.4"

@@ -12,6 +12,25 @@ The compile option is `--relese` and `LTS=false` is specified.
 I benchmarked various command line parsers with commands that emulate `curl` with 229 options.
 At a glance
 
+- compiled by rustc 1.53.0 (53cb7b09b 2021-06-17)
+
+|       `name`       |   `bench`   | `.text`  |  `Δ bench`  | `Δ .text` |
+|:-------------------|------------:|---------:|------------:|---------:|
+| cmp_null_void      |    1.219 kc |  311 kib |    0.000 kc |    0 kib |
+| cmp_flood_tide     |    5.753 kc |  358 kib |    4.534 kc |   46 kib |
+| cmp_gumdrop        |   10.389 kc |  427 kib |    9.170 kc |  116 kib |
+| cmp_pure_rust      |   12.047 kc |  372 kib |   10.828 kc |   61 kib |
+| cmp_argh           |   24.134 kc |  393 kib |   22.916 kc |   82 kib |
+| cmp_pico_args      |  149.519 kc |  428 kib |  148.300 kc |  117 kib |
+| cmp_rustop         |  424.860 kc |  479 kib |  423.641 kc |  168 kib |
+| cmp_clap           |  495.830 kc |  928 kib |  494.612 kc |  617 kib |
+| cmp_getopts        |  681.002 kc |  395 kib |  679.783 kc |   84 kib |
+| cmp_structopt      |  687.995 kc | 1056 kib |  686.777 kc |  745 kib |
+| cmp_commander      |  737.606 kc |  408 kib |  736.388 kc |   97 kib |
+| cmp_lapp           | 1137.391 kc |  450 kib | 1136.172 kc |  139 kib |
+| cmp_args           | 2043.305 kc |  455 kib | 2042.086 kc |  144 kib |
+| cmp_app            | 2390.787 kc |  690 kib | 2389.569 kc |  379 kib |
+
 - compiled by rustc 1.52.0 (88f19c6da 2021-05-03)
 
 |       `name`       |   `bench`   | `.text`  |  `Δ bench`  | `Δ .text` |

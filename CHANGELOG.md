@@ -2,6 +2,11 @@ TBD
 ===
 Unreleased changes. Release notes have not yet been written.
 
+0.1.14 (2021-06-29)
+=====
+
+* update depends: pico-args(0.4.2), rustc_version(0.4)
+
 0.1.13 (2021-05-09)
 =====
 

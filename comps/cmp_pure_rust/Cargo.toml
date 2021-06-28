@@ -37,4 +37,4 @@ criterion = "0.3"
 criterion-cycles-per-byte = "0.1"
 
 [build-dependencies]
-rustc_version = "0.3"
+rustc_version = "0.4"
