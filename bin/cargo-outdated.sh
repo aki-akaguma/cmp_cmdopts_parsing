@@ -6,7 +6,7 @@ echo > z.outdated.log
 
 for nm in $NAMES; do
   echo "$nm :::"
-  ( cd "$nm" && {
+  ( cd "comps/$nm" && {
     cargo outdated
   })
   echo
