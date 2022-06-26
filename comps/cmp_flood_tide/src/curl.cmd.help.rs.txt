@@ -713,7 +713,7 @@ const OPT_ARY: [Opt;229] = [
 const OPT_ARY_SHO_IDX: [(u8,usize);59] = [
 (b'#',126),(b'0',69),(b'1',210),(b'2',194),(b'3',195),(b'4',78),(b'6',79),(b':',104),(b'A',224),(b'B',222),(b'C',16),(b'D',38),(b'E',7),(b'F',47),(b'G',60),(b'H',66),(b'I',64),(b'J',164),(b'K',13),(b'L',89),(b'M',95),(b'N',106),(b'O',165),(b'P',54),(b'Q',159),(b'R',167),(b'S',178),(b'T',220),(b'U',155),(b'V',226),(b'X',168),(b'Y',188),(b'Z',116),(b'a',3),(b'b',17),(b'c',18),(b'd',22),(b'e',163),(b'f',44),(b'g',61),(b'h',65),(b'i',75),(b'j',80),(b'k',76),(b'l',87),(b'm',98),(b'n',101),(b'o',115),(b'p',157),(b'q',29),(b'r',161),(b's',179),(b't',201),(b'u',223),(b'v',225),(b'w',227),(b'x',130),(b'y',189),(b'z',204),];
 
-#[derive(Debug, Default, PartialEq)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub struct CmdOptConf {
     pub prog_name: String,
     //
@@ -962,7 +962,7 @@ impl flood_tide::HelpVersion for CmdOptConf {
 fn value_to_string(nv: &NameVal<'_>) -> Result<String, OptParseError> {
     match nv.val {
         Some(x) => Ok(x.to_string()),
-        None => Err(OptParseError::missing_option_argument(&nv.opt.lon)),
+        None => Err(OptParseError::missing_option_argument(&nv.opt.lon_or_sho())),
     }
 }
 
@@ -971,11 +971,11 @@ fn value_to_u32(nv: &NameVal<'_>) -> Result<u32, OptParseError> {
         Some(x) => match x.parse::<u32>() {
             Ok(d) => Ok(d),
             Err(err) => Err(OptParseError::invalid_option_argument(
-                &nv.opt.lon,
+                &nv.opt.lon_or_sho(),
                 &err.to_string(),
             )),
         },
-        None => Err(OptParseError::missing_option_argument(&nv.opt.lon)),
+        None => Err(OptParseError::missing_option_argument(&nv.opt.lon_or_sho())),
     }
 }
 
@@ -984,10 +984,10 @@ fn value_to_u64(nv: &NameVal<'_>) -> Result<u64, OptParseError> {
         Some(x) => match x.parse::<u64>() {
             Ok(d) => Ok(d),
             Err(err) => Err(OptParseError::invalid_option_argument(
-                &nv.opt.lon,
+                &nv.opt.lon_or_sho(),
                 &err.to_string(),
             )),
         },
-        None => Err(OptParseError::missing_option_argument(&nv.opt.lon)),
+        None => Err(OptParseError::missing_option_argument(&nv.opt.lon_or_sho())),
     }
 }

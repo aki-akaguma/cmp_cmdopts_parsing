@@ -15,13 +15,11 @@
 //!
 #![cfg_attr(not(feature = "std"), no_std)]
 
-#[allow(unused)]
-#[macro_use]
 extern crate alloc;
-extern crate core;
 
 use alloc::fmt::Error;
 use alloc::fmt::Formatter;
+use alloc::fmt::Write;
 use alloc::slice::Iter;
 use alloc::string::String;
 use alloc::vec::Vec;
@@ -30,7 +28,7 @@ use alloc::fmt::Display;
 use alloc::string::ToString;
 
 //{{{ OptParseErrorKind
-#[derive(Debug, PartialEq, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum OptParseErrorKind {
     InvalidOption,
     MissingOption,
@@ -219,7 +217,7 @@ impl Display for OptParseErrors {
         } else {
             let mut s = String::new();
             for err in self.iter() {
-                s += &format!("{}\n", err);
+                let _ = writeln!(s, "{}", err);
             }
             write!(fmt, "{}", &s[0..(s.len() - 1)])
         }

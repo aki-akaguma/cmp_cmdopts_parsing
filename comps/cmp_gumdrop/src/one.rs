@@ -4,6 +4,7 @@ use optpaerr_a::OptParseError;
 
 //----------------------------------------------------------------------
 //{{{ CmdOptConf
+#[allow(dead_code)]
 #[derive(Debug, Default)]
 pub struct CmdOptConf {
     flag_debug: bool,
@@ -81,12 +82,14 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
         print_version_and_exit();
     }
     //
-    let mut args = CmdOptConf::default();
-    args.flag_debug = opt.debug;
-    args.cnt_verbose = opt.verbose as usize;
-    args.opt_speed = opt.speed;
-    args.opt_color = opt.color;
-    args.opt_config = opt.config;
+    let mut args = CmdOptConf {
+        flag_debug: opt.debug,
+        cnt_verbose: opt.verbose as usize,
+        opt_speed: opt.speed,
+        opt_color: opt.color,
+        opt_config: opt.config,
+        ..CmdOptConf::default()
+    };
     //
     if !opt.free.is_empty() {
         args.arg_input = opt.free[0].clone();
@@ -107,5 +110,5 @@ pub fn create_conf() -> anyhow::Result<CmdOptConf> {
     let _program = env_args.remove(0);
     let program = env!("CARGO_PKG_NAME");
     let env_args: Vec<&str> = env_args.iter().map(std::string::String::as_str).collect();
-    parse_cmdopts(&program, env_args)
+    parse_cmdopts(program, env_args)
 }

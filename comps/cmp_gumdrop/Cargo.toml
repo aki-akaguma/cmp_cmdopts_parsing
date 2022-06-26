@@ -28,8 +28,8 @@ harness = false
 
 [dependencies]
 optcolorwhen = { path="../common/optcolorwhen" }
-gumdrop = "=0.8.0"
-gumdrop_derive = "=0.8.0"
+gumdrop = "=0.8.1"
+gumdrop_derive = "=0.8.1"
 anyhow = "1.0"
 optpaerr-a = { path="../common/optpaerr-a", features=["option_argument","argument"] }
 

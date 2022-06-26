@@ -6,6 +6,7 @@ use std::str::FromStr;
 
 //----------------------------------------------------------------------
 //{{{ CmdOptConf
+#[allow(dead_code)]
 #[derive(Debug, Default)]
 pub struct CmdOptConf {
     flag_debug: bool,
@@ -72,25 +73,24 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<OsString>) -> anyhow::Result<
         print_version_and_exit();
     }
     //
-    let mut args = CmdOptConf::default();
-    args.flag_debug = pico_args.contains(["-d", "--debug"]);
-    args.cnt_verbose = pico_args
-        .opt_value_from_str(["-v", "--verbose"])?
-        .unwrap_or(0);
-    args.opt_speed = pico_args
-        .opt_value_from_str(["-s", "--speed"])?
-        .unwrap_or(42.0);
-    args.opt_color = pico_args
-        .opt_value_from_fn("--color", parse_color)?
-        .unwrap_or(OptColorWhen::Auto);
-    args.opt_config = pico_args.opt_value_from_str(["-c", "--config"])?;
+    let mut args = CmdOptConf {
+        flag_debug: pico_args.contains(["-d", "--debug"]),
+        cnt_verbose: pico_args
+            .opt_value_from_str(["-v", "--verbose"])?
+            .unwrap_or(0),
+        opt_speed: pico_args
+            .opt_value_from_str(["-s", "--speed"])?
+            .unwrap_or(42.0),
+        opt_color: pico_args
+            .opt_value_from_fn("--color", parse_color)?
+            .unwrap_or(OptColorWhen::Auto),
+        opt_config: pico_args.opt_value_from_str(["-c", "--config"])?,
+        ..CmdOptConf::default()
+    };
     //
     let mut free: Vec<String> = Vec::new();
-    loop {
-        match pico_args.free_from_str() {
-            Ok(s) => free.push(s),
-            Err(_e) => break,
-        }
+    while let Ok(s) = pico_args.free_from_str() {
+        free.push(s)
     }
     //assert_eq!(format!("{:?}", free), "");
     //let free = pico_args.free()?;
@@ -118,5 +118,5 @@ pub fn create_conf() -> anyhow::Result<CmdOptConf> {
     let _program = env_args.remove(0);
     let program = env!("CARGO_PKG_NAME");
     let env_args: Vec<&str> = env_args.iter().map(std::string::String::as_str).collect();
-    parse_cmdopts_str(&program, env_args)
+    parse_cmdopts_str(program, env_args)
 }

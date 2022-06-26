@@ -28,7 +28,7 @@ harness = false
 
 [dependencies]
 optcolorwhen = { path="../common/optcolorwhen" }
-argh = "=0.1.6"
+argh = "=0.1.7"
 simple-error = "0.2"
 anyhow = "1.0"
 optpaerr-a = { path="../common/optpaerr-a" }

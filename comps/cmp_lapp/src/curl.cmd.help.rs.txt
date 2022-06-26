@@ -237,7 +237,7 @@ Arguments:
   <URL> (string)     getting url
 ";
 
-#[derive(Debug, Default, PartialEq)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub struct CmdOptConf {
     pub opt_program: String,
     //

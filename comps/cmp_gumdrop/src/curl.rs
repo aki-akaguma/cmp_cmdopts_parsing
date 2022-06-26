@@ -36,7 +36,7 @@ fn usage_message(program: &str) -> String {
 fn help_message(program: &str) -> String {
     let ver = version_message(program);
     let usa = usage_message("curl");
-    [ &ver, "", &usa, DESCRIPTIONS_TEXT, &MyOptions::usage(), "",
+    [ &ver, "", &usa, DESCRIPTIONS_TEXT, MyOptions::usage(), "",
         ARGUMENTS_TEXT, EXAMPLES_TEXT].join("\n")
 }
 
@@ -60,7 +60,7 @@ pub fn parse_cmdopts(program: &str, env_args: &[&str]) -> anyhow::Result<CmdOptC
         ..Default::default()
     };
     //
-    let opt = match MyOptions::parse_args_default(&env_args) {
+    let opt = match MyOptions::parse_args_default(env_args) {
         Ok(o) => o,
         Err(err) => return Err(From::from(err)),
     };
@@ -79,5 +79,5 @@ pub fn create_conf() -> anyhow::Result<CmdOptConf> {
     let _program = env_args.remove(0);
     let program = env!("CARGO_PKG_NAME");
     let env_args: Vec<&str> = env_args.iter().map(std::string::String::as_str).collect();
-    parse_cmdopts(&program, &env_args)
+    parse_cmdopts(program, &env_args)
 }

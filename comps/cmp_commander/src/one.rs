@@ -5,6 +5,7 @@ use std::str::FromStr;
 
 //----------------------------------------------------------------------
 //{{{ CmdOptConf
+#[allow(dead_code)]
 #[derive(Debug, Default)]
 pub struct CmdOptConf {
     flag_debug: bool,
@@ -61,7 +62,7 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<String>) -> anyhow::Result<Cm
         coa.cnt_verbose = i as usize;
     }
     if let Some(f) = cmd.get_float("speed") {
-        coa.opt_speed = f;
+        coa.opt_speed = f as f32;
     }
     if let Some(s) = cmd.get_str("color") {
         coa.opt_color = match FromStr::from_str(s.as_str()) {

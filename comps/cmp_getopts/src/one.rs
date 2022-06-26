@@ -49,7 +49,7 @@ pub fn parse_cmdopts(program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdOp
         }
     };
     if matches.opt_present("help") {
-        let msg = full_usage(&program, opts);
+        let msg = full_usage(program, opts);
         println!("{}", msg);
         std::process::exit(0);
     }
@@ -110,5 +110,5 @@ pub fn create_conf() -> anyhow::Result<CmdOptConf> {
     let _program = env_args.remove(0);
     let program = env!("CARGO_PKG_NAME");
     let env_args: Vec<&str> = env_args.iter().map(std::string::String::as_str).collect();
-    parse_cmdopts(&program, env_args)
+    parse_cmdopts(program, env_args)
 }

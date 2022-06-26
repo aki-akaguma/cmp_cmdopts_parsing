@@ -195,7 +195,7 @@ fn test_invalid_flag() {
     assert_eq!(oup.stderr, "");
 }
 
-#[test] //<BUG>
+#[test]
 fn test_invalid_float() {
     let oup = exec_target(TARGET_EXE_PATH, &["-s", "12x", "inp"]);
     assert_eq!(oup.status.success(), true);
@@ -213,7 +213,7 @@ fn test_invalid_float() {
             " }\n"
         )
     );
-    assert_eq!(oup.stderr, "");
+    assert_eq!(oup.stderr, "Convert 12x to float failed\n");
 }
 
 #[test]

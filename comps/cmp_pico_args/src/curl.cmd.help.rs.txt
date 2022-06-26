@@ -231,7 +231,7 @@ const OPTIONS_TEXT: &str = r"Options:
   -V, --version             output version information and exit
 ";
 
-#[derive(Debug, Default, PartialEq)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub struct CmdOptConf {
     pub opt_program: String,
     //

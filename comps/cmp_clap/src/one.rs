@@ -103,7 +103,7 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
         None => 0.0,
     };
     args.opt_color = match matches.value_of("color") {
-        Some(s) => match FromStr::from_str(&s) {
+        Some(s) => match FromStr::from_str(s) {
             Ok(color) => color,
             Err(err) => {
                 return Err(From::from(OptParseError::invalid_option_argument(
@@ -114,18 +114,12 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
         },
         None => OptColorWhen::Auto,
     };
-    args.opt_config = match matches.value_of("config") {
-        Some(s) => Some(s.to_string()),
-        None => None,
-    };
+    args.opt_config = matches.value_of("config").map(|s| s.to_string());
     args.arg_input = match matches.value_of("input") {
         Some(x) => x.to_string(),
         None => "".to_string(),
     };
-    args.arg_output = match matches.value_of("output") {
-        Some(x) => Some(x.to_string()),
-        None => None,
-    };
+    args.arg_output = matches.value_of("output").map(|s| s.to_string());
     //
     Ok(args)
 }

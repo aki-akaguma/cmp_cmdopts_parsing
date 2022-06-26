@@ -5,6 +5,7 @@ use std::str::FromStr;
 
 //----------------------------------------------------------------------
 //{{{ CmdOptConf
+#[allow(dead_code)]
 #[derive(Debug, Default)]
 pub struct CmdOptConf {
     flag_debug: bool,
@@ -122,5 +123,5 @@ pub fn create_conf() -> anyhow::Result<CmdOptConf> {
     let _program = env_args.remove(0);
     let program = env!("CARGO_PKG_NAME");
     let env_args: Vec<&str> = env_args.iter().map(std::string::String::as_str).collect();
-    parse_cmdopts(&program, env_args)
+    parse_cmdopts(program, env_args)
 }

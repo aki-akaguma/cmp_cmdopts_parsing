@@ -91,7 +91,7 @@ fn value_to_u64(cur_s: &str, value: Option<String>) -> Result<u64, OptParseError
 }
 
 fn normalize_cmdopts(args: &[&str]) -> Vec<String> {
-    fn strip_prefix<'a>(x: &'a str, prefix: char) -> Option<&'a str> {
+    fn strip_prefix(x: &str, prefix: char) -> Option<&str> {
         #[cfg(not(has_not_strip_prefix))]
         {
             x.strip_prefix(prefix)
@@ -157,7 +157,7 @@ pub fn parse_cmdopts(program: &str, env_args: &[&str]) -> anyhow::Result<CmdOptC
     let mut cursor = env_args.into_iter().peekable();
     while let Some(cur) = cursor.next() {
         let cur_s = cur.as_str();
-        match parse_cmdopts_match(&cur_s, &mut cursor, &mut free, &mut conf) {
+        match parse_cmdopts_match(cur_s, &mut cursor, &mut free, &mut conf) {
             Ok(_) => {}
             Err(err) => return Err(err),
         }
@@ -177,5 +177,5 @@ pub fn create_conf() -> anyhow::Result<CmdOptConf> {
     let _program = env_args.remove(0);
     let program = env!("CARGO_PKG_NAME");
     let env_args: Vec<&str> = env_args.iter().map(std::string::String::as_str).collect();
-    parse_cmdopts(&program, &env_args)
+    parse_cmdopts(program, &env_args)
 }

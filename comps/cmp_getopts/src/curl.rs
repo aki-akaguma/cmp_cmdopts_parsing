@@ -57,7 +57,7 @@ fn print_version_and_exit(conf: &CmdOptConf) {
 fn value_to_string(nm: &str, val: Option<String>) -> anyhow::Result<String> {
     match val {
         Some(x) => Ok(x),
-        None => Err(From::from(OptParseError::missing_option_argument(&nm))),
+        None => Err(From::from(OptParseError::missing_option_argument(nm))),
     }
 }
 
@@ -66,11 +66,11 @@ fn value_to_u32(nm: &str, val: Option<String>) -> anyhow::Result<u32> {
         Some(x) => match x.parse::<u32>() {
             Ok(d) => Ok(d),
             Err(err) => Err(From::from(OptParseError::invalid_option_argument(
-                &nm,
+                nm,
                 &err.to_string(),
             ))),
         },
-        None => Err(From::from(OptParseError::missing_option_argument(&nm))),
+        None => Err(From::from(OptParseError::missing_option_argument(nm))),
     }
 }
 
@@ -79,11 +79,11 @@ fn value_to_u64(nm: &str, val: Option<String>) -> anyhow::Result<u64> {
         Some(x) => match x.parse::<u64>() {
             Ok(d) => Ok(d),
             Err(err) => Err(From::from(OptParseError::invalid_option_argument(
-                &nm,
+                nm,
                 &err.to_string(),
             ))),
         },
-        None => Err(From::from(OptParseError::missing_option_argument(&nm))),
+        None => Err(From::from(OptParseError::missing_option_argument(nm))),
     }
 }
 

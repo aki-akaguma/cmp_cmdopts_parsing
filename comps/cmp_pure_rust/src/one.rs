@@ -39,7 +39,7 @@ fn full_usage(program: &str) -> String {
 }
 
 fn normalize_cmdopts(args: Vec<&str>) -> Vec<String> {
-    fn strip_prefix<'a>(x: &'a str, prefix: char) -> Option<&'a str> {
+    fn strip_prefix(x: &str, prefix: char) -> Option<&str> {
         #[cfg(not(has_not_strip_prefix))]
         {
             x.strip_prefix(prefix)
@@ -140,10 +140,7 @@ fn parse_cmdopts_match(
         }
         "-c" | "--config" => {
             let config_s = cursor.next();
-            args.opt_config = match config_s {
-                Some(s) => Some(s),
-                None => None,
-            };
+            args.opt_config = config_s;
         }
         _ => {
             if !cur_s.starts_with('-') {
@@ -170,7 +167,7 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
     let mut cursor = env_args.into_iter().peekable();
     while let Some(cur) = cursor.next() {
         let cur_s = cur.as_str();
-        match parse_cmdopts_match(&cur_s, &mut cursor, &mut free, &mut args) {
+        match parse_cmdopts_match(cur_s, &mut cursor, &mut free, &mut args) {
             Ok(_) => {}
             Err(err) => return Err(err),
         }
@@ -194,5 +191,5 @@ pub fn create_conf() -> anyhow::Result<CmdOptConf> {
     let _program = env_args.remove(0);
     let program = env!("CARGO_PKG_NAME");
     let env_args: Vec<&str> = env_args.iter().map(std::string::String::as_str).collect();
-    parse_cmdopts(&program, env_args)
+    parse_cmdopts(program, env_args)
 }

@@ -28,7 +28,7 @@ harness = false
 
 [dependencies]
 optcolorwhen = { path="../common/optcolorwhen" }
-structopt = "=0.3.25"
+structopt = "=0.3.26"
 structopt-derive = "=0.4.18"
 anyhow = "1.0"
 optpaerr-a = { path="../common/optpaerr-a" }

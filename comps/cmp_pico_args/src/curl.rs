@@ -117,11 +117,8 @@ pub fn parse_cmdopts(program: &str, env_args: Vec<OsString>) -> anyhow::Result<C
     include!("curl.cmd.match.rs.txt");
     //
     let mut free: Vec<String> = Vec::new();
-    loop {
-        match pico_args.free_from_str() {
-            Ok(s) => free.push(s),
-            Err(_e) => break,
-        }
+    while let Ok(s) = pico_args.free_from_str() {
+        free.push(s)
     }
     //let free = pico_args.free()?;
     if !free.is_empty() {
@@ -144,5 +141,5 @@ pub fn create_conf() -> anyhow::Result<CmdOptConf> {
     let _program = env_args.remove(0);
     let program = env!("CARGO_PKG_NAME");
     let env_args: Vec<&str> = env_args.iter().map(std::string::String::as_str).collect();
-    parse_cmdopts_str(&program, env_args)
+    parse_cmdopts_str(program, env_args)
 }

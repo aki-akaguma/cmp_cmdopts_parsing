@@ -68,7 +68,7 @@ fn value_to_u32(nm: &str, val: Result<String, ArgsError>) -> anyhow::Result<u32>
         Ok(x) => match x.parse::<u32>() {
             Ok(d) => Ok(d),
             Err(err) => Err(From::from(OptParseError::invalid_option_argument(
-                &nm,
+                nm,
                 &err.to_string(),
             ))),
         },
@@ -82,7 +82,7 @@ fn value_to_u64(nm: &str, val: Result<String, ArgsError>) -> anyhow::Result<u64>
         Ok(x) => match x.parse::<u64>() {
             Ok(d) => Ok(d),
             Err(err) => Err(From::from(OptParseError::invalid_option_argument(
-                &nm,
+                nm,
                 &err.to_string(),
             ))),
         },

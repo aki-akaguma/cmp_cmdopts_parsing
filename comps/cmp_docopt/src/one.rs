@@ -3,6 +3,7 @@ use serde_derive::*;
 
 //----------------------------------------------------------------------
 //{{{ CmdOptConf
+#[allow(dead_code)]
 #[derive(Debug, Deserialize)]
 pub struct CmdOptConf {
     flag_debug: bool,

@@ -76,7 +76,7 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
     };
     let help = aargs.value_of("help")?;
     if help {
-        let msg = full_usage(&program, aargs);
+        let msg = full_usage(program, aargs);
         println!("{}", msg);
         std::process::exit(0);
     }

@@ -16,6 +16,7 @@ impl ArgsError {
     /// Creates a new `ArgsError` with the provided `scope`, `msg` and `usage` message.
     /// If either `scope` or `usage` are an empty string (i.e. `""`) they will be ignored.
     pub fn new_with_usage(scope: &str, msg: &str, usage: &str) -> ArgsError {
+        use std::fmt::Write;
         // If there is a scope, append it to the front
         let mut v_desc = if scope.to_string().is_empty() {
             String::new()
@@ -28,7 +29,7 @@ impl ArgsError {
 
         // Append the usage message, if it exists
         if !usage.to_string().is_empty() {
-            v_desc.push_str(&format!("\n\n{}", usage));
+            let _ = write!(v_desc, "\n\n{}", usage);
         }
 
         ArgsError { desc: v_desc }

@@ -1,6 +1,6 @@
 //{{{ OptColorWhen
 #[repr(u8)]
-#[derive(Debug, PartialEq, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum OptColorWhen {
     Never = 0,
     Always = 1,

@@ -4,6 +4,7 @@ use structopt::StructOpt;
 //----------------------------------------------------------------------
 
 //{{{ CmdOptConf
+#[allow(dead_code)]
 #[derive(StructOpt, Debug)]
 //# [structopt(name = "cmp_structopt", author = "", about = "An example of StructOpt usage.")]
 #[structopt()]
@@ -74,5 +75,5 @@ pub fn create_conf() -> anyhow::Result<CmdOptConf> {
     //let _program = env_args.remove(0);
     let program = env!("CARGO_PKG_NAME");
     let env_args: Vec<&str> = env_args.iter().map(std::string::String::as_str).collect();
-    parse_cmdopts(&program, env_args)
+    parse_cmdopts(program, env_args)
 }

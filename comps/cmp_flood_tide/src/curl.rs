@@ -81,13 +81,11 @@ pub fn parse_cmdopts_0(a_prog_name: &str, args: &[&str]) -> Result<CmdOptConf, O
     #[cfg(feature = "single_error")]
     {
         if conf.is_help() {
-            return Err(From::from(OptParseError::help_message(&help_message(
-                &conf.prog_name,
-            ))));
+            return Err(OptParseError::help_message(&help_message(&conf.prog_name)));
         }
         if conf.is_version() {
-            return Err(From::from(OptParseError::version_message(
-                &version_message(&conf.prog_name),
+            return Err(OptParseError::version_message(&version_message(
+                &conf.prog_name,
             )));
         }
     }
@@ -110,13 +108,13 @@ pub fn parse_cmdopts_0(a_prog_name: &str, args: &[&str]) -> Result<CmdOptConf, O
     #[cfg(feature = "single_error")]
     {
         if let Err(err) = r_errs {
-            return Err(From::from(err));
+            return Err(err);
         }
         if let Some(free) = opt_free {
             if !free.is_empty() {
                 conf.arg_params = free;
             } else {
-                return Err(From::from(OptParseError::missing_argument("<url>")));
+                return Err(OptParseError::missing_argument("<url>"));
             }
         }
     }

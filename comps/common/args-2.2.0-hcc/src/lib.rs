@@ -428,10 +428,11 @@ impl Args {
 
 impl Display for Args {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        use std::fmt::Write;
         let mut display = String::new();
-        display.push_str(&format!("{}\n{}", to_column("Args"), column_underline()));
+        let _ = write!(display, "{}\n{}", to_column("Args"), column_underline());
         for (key, value) in self.values.clone() {
-            display.push_str(&format!("\n{}\t{}", to_column(&key), to_column(&value)));
+            let _ = write!(display, "\n{}\t{}", to_column(&key), to_column(&value));
         }
         write!(f, "{}", display)
     }

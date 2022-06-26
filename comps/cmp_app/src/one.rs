@@ -6,6 +6,7 @@ use std::str::FromStr;
 
 //----------------------------------------------------------------------
 //{{{ CmdOptConf
+#[allow(dead_code)]
 #[derive(Debug, Default)]
 pub struct CmdOptConf {
     flag_debug: bool,
@@ -115,9 +116,11 @@ impl<'app, 's: 'app> app::OptValueParse<'app> for &'s mut OptColorApp {
 //----------------------------------------------------------------------
 #[inline(never)]
 pub fn parse_cmdopts(_program: &str, env_args: &[String]) -> anyhow::Result<CmdOptConf> {
-    let mut args = CmdOptConf::default();
-    args.opt_speed = 42.0;
-    args.opt_color = OptColorApp::OptColorWhen(OptColorWhen::Auto);
+    let mut args = CmdOptConf {
+        opt_speed: 42.0,
+        opt_color: OptColorApp::OptColorWhen(OptColorWhen::Auto),
+        ..Default::default()
+    };
     let app = {
         App::new(env!("CARGO_PKG_NAME"))
             .version(env!("CARGO_PKG_VERSION"))

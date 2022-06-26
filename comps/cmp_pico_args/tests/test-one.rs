@@ -171,7 +171,7 @@ fn test_invalid_float() {
     assert_eq!(
         oup.stderr,
         concat!(
-            "failed to parse \'12x\' cause invalid float literal\n",
+            "failed to parse \'12x\': invalid float literal\n",
             try_help_msg!()
         )
     );
@@ -185,12 +185,20 @@ fn test_invalid_color() {
     assert_eq!(
         oup.stderr,
         concat!(
-            "failed to parse \'nev\' cause can not parse \'nev\'\n",
+            "failed to parse \'nev\': can not parse 'nev'\n",
             try_help_msg!()
         )
     );
 }
 
+#[test]
+fn test_invalid_color2() {
+    let oup = exec_target(TARGET_EXE_PATH, &["--color="]);
+    assert_eq!(oup.status.success(), true);
+    assert_eq!(oup.stdout, "CmdOptConf { flag_debug: false, cnt_verbose: 0, opt_speed: 42.0, opt_color: Auto, opt_config: None, arg_input: \"--color=\", arg_output: None }\n");
+    assert_eq!(oup.stderr, "");
+}
+/*
 #[test]
 fn test_invalid_color2() {
     let oup = exec_target(TARGET_EXE_PATH, &["--color="]);
@@ -204,6 +212,7 @@ fn test_invalid_color2() {
         )
     );
 }
+*/
 /*
 #[test]
 fn test_abbreviate_options() {

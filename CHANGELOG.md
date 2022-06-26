@@ -1,6 +1,10 @@
-TBD
+TBD: cmp_cmdopts_parsing
 ===
 Unreleased changes. Release notes have not yet been written.
+
+* update depends: argh(0.1.7), clap(2.34.0), commander(0.1.5)
+* update depends: flood-tide(0.2.5), gumdrop(0.8.1), pico_args(0.5.0)
+* update depends: struct_opt(0.3.26)
 
 0.1.14 (2021-06-29)
 =====

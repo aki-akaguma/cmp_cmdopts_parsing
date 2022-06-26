@@ -239,7 +239,7 @@ Args:
   <getting-url>     getting url
 ";
 
-#[derive(Debug, Default, PartialEq, Deserialize)]
+#[derive(Debug, Default, PartialEq, Eq, Deserialize)]
 pub struct CmdOptConf {
     //pub opt_program: String,
     //

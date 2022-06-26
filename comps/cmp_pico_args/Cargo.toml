@@ -28,7 +28,7 @@ harness = false
 
 [dependencies]
 optcolorwhen = { path="../common/optcolorwhen" }
-pico-args = "=0.4.2"
+pico-args = "=0.5.0"
 anyhow = "1.0"
 optpaerr-a = { path="../common/optpaerr-a", features=["option_argument","argument"] }
 

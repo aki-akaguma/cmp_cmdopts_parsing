@@ -123,10 +123,7 @@ fn parse_match(conf: &mut CmdOptConf, nv: &NameVal<'_>) -> Result<(), OptParseEr
             };
         }
         CmdOP::Config => {
-            conf.opt_config = match nv.val {
-                Some(s) => Some(s.to_string()),
-                None => None,
-            };
+            conf.opt_config = nv.val.map(|s| s.to_string());
         }
     }
     Ok(())
@@ -167,7 +164,7 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
         };
         //
         for nv in tokens.namevals.iter() {
-            match parse_match(&mut conf, &nv) {
+            match parse_match(&mut conf, nv) {
                 Ok(_) => {}
                 Err(err) => return Err(From::from(err)),
             }

@@ -23,7 +23,7 @@ const OPTIONS_TEXT: &str = r""#;
     sss += "\";\n";
     //
     sss += r#"
-#[derive(Debug, Default, PartialEq)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub struct CmdOptConf {
     pub opt_program: String,
     //

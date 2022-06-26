@@ -2,6 +2,7 @@ use optcolorwhen::OptColorWhen;
 
 //----------------------------------------------------------------------
 //{{{ CmdOptConf
+#[allow(dead_code)]
 #[derive(Debug, Default)]
 pub struct CmdOptConf {
     pub flag_debug: bool,
