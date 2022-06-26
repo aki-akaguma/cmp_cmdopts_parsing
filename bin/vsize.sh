@@ -8,4 +8,4 @@ for nm in $NAMES; do
   a="$a \"$nm/target/debug/$nm-one\""
   a="$a \"$nm/target/debug/$nm-curl\""
 done
-eval rust-viewexec size -fc "$a" | rust-gsub -e "^(.*) [^ ]+/target/debug/([^ ]+)\$" -f "\$1 \$2"
+eval rust-viewexec size -fc "$a" | aki-gsub -e "^(.*) [^ ]+/target/debug/([^ ]+)\$" -f "\$1 \$2"

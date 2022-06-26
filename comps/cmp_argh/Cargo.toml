@@ -2,7 +2,7 @@
 name = "cmp_argh"
 version = "0.1.0"
 authors = ["aki <aki.akaguma@hotmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [[bin]]
 name = "cmp_argh-one"

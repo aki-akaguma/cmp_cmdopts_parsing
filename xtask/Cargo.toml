@@ -2,11 +2,11 @@
 name = "xtask"
 version = "0.1.0"
 authors = ["aki <aki.akaguma@hotmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 anyhow = "1.0"
-regex = "1.4"
+regex = "1.5"
 
 cmp_null_void_xtask = { path="../comps/cmp_null_void/xtask" }
 cmp_app_xtask = { path="../comps/cmp_app/xtask" }

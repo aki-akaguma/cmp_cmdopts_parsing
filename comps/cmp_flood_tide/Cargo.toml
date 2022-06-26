@@ -2,7 +2,7 @@
 name = "cmp_flood_tide"
 version = "0.1.2"
 authors = ["aki <aki.akaguma@hotmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [[bin]]
 name = "cmp_flood_tide-one"
