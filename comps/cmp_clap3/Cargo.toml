@@ -1,0 +1,38 @@
+[package]
+name = "cmp_clap3"
+version = "0.1.1"
+authors = ["aki <aki.akaguma@hotmail.com>"]
+edition = "2021"
+
+[[bin]]
+name = "cmp_clap3-one"
+path = "src/main-one.rs"
+
+[[bin]]
+name = "cmp_clap3-curl"
+path = "src/main-curl.rs"
+
+[[bench]]
+name = "bench"
+harness = false
+
+[[bench]]
+name = "bench-cmp_clap3-one"
+path = "benches/bench-one.rs"
+harness = false
+
+[[bench]]
+name = "bench-cmp_clap3-curl"
+path = "benches/bench-curl.rs"
+harness = false
+
+[dependencies]
+optcolorwhen = { path="../common/optcolorwhen" }
+clap = "=3.2.6"
+anyhow = "1.0"
+optpaerr-a = { path="../common/optpaerr-a", features=["option_argument","argument"] }
+
+[dev-dependencies]
+exec-target-a = { path="../common/exec-target-a" }
+criterion = "0.3"
+criterion-cycles-per-byte = "0.1"

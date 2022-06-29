@@ -4,6 +4,7 @@ cmp_app
 cmp_argh
 cmp_args
 cmp_clap
+cmp_clap3
 cmp_commander
 cmp_flood_tide
 cmp_getopts

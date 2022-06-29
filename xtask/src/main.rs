@@ -23,6 +23,7 @@ fn main() -> anyhow::Result<()> {
         "cmp_argh" => cmp_argh_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
         "cmp_args" => cmp_args_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
         "cmp_clap" => cmp_clap_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
+        "cmp_clap3" => cmp_clap3_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
         "cmp_commander" => cmp_commander_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
         "cmp_docopt" => cmp_docopt_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
         "cmp_flood_tide" => cmp_flood_tide_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
@@ -56,7 +57,7 @@ fn print_help_and_exit(program: &str) {
         concat!(
             "shape_benchmark_results|all_gen_src",
             "\n    ",
-            "|cmp_null_void|cmp_app|cmp_argh|cmp_args|cmp_clap|cmp_commander",
+            "|cmp_null_void|cmp_app|cmp_argh|cmp_args|cmp_clap|cmp_clap3|cmp_commander",
             "\n    ",
             "|cmp_docopt|cmp_flood_tide|cmp_getopts|cmp_gumdrop|cmp_lapp",
             "\n    ",
@@ -97,6 +98,7 @@ pub fn all_run(program: &str, env_args: &[&str]) -> anyhow::Result<()> {
     cmp_argh_xtask::run(&format!("{} {}", program, "cmp_argh"), &env_args)?;
     cmp_args_xtask::run(&format!("{} {}", program, "cmp_args"), &env_args)?;
     cmp_clap_xtask::run(&format!("{} {}", program, "cmp_clap"), &env_args)?;
+    cmp_clap3_xtask::run(&format!("{} {}", program, "cmp_clap3"), &env_args)?;
     cmp_commander_xtask::run(&format!("{} {}", program, "cmp_commander"), &env_args)?;
     cmp_docopt_xtask::run(&format!("{} {}", program, "cmp_docopt"), &env_args)?;
     cmp_flood_tide_xtask::run(&format!("{} {}", program, "cmp_docopt"), &env_args)?;

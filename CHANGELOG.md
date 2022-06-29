@@ -2,6 +2,11 @@ TBD: cmp_cmdopts_parsing
 ===
 Unreleased changes. Release notes have not yet been written.
 
+0.1.16 (2022-06-29)
+=====
+
+* adds cmp_clap3
+
 0.1.15 (2022-06-26)
 =====
 

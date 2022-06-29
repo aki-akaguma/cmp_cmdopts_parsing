@@ -13,6 +13,7 @@ cmp_app_xtask = { path="../comps/cmp_app/xtask" }
 cmp_argh_xtask = { path="../comps/cmp_argh/xtask" }
 cmp_args_xtask = { path="../comps/cmp_args/xtask" }
 cmp_clap_xtask = { path="../comps/cmp_clap/xtask" }
+cmp_clap3_xtask = { path="../comps/cmp_clap3/xtask" }
 cmp_commander_xtask = { path="../comps/cmp_commander/xtask" }
 cmp_docopt_xtask = { path="../comps/cmp_docopt/xtask" }
 cmp_flood_tide_xtask = { path="../comps/cmp_flood_tide/xtask" }
