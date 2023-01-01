@@ -28,12 +28,12 @@ harness = false
 
 [dependencies]
 optcolorwhen = { path="../common/optcolorwhen" }
-argh = "=0.1.7"
+argh = "=0.1.9"
 simple-error = "0.2"
 anyhow = "1.0"
 optpaerr-a = { path="../common/optpaerr-a" }
 
 [dev-dependencies]
 exec-target-a = { path="../common/exec-target-a" }
-criterion = "0.3"
-criterion-cycles-per-byte = "0.1"
+criterion = "0.4"
+criterion-cycles-per-byte = "0.4"

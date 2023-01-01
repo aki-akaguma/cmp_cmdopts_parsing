@@ -2,6 +2,12 @@ TBD: cmp_cmdopts_parsing
 ===
 Unreleased changes. Release notes have not yet been written.
 
+0.1.17 (2023-01-02)
+=====
+
+* update benchmark results
+* update crates: criterion(0.4)
+
 0.1.16 (2022-06-29)
 =====
 
