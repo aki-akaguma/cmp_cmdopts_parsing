@@ -1,5 +1,8 @@
 # cmp_cmdopts_parsing
 
+![Rust Version][rustc-image]
+![Apache2/MIT licensed][license-image]
+
 I compared different CLI(Command Line Interface) parsers.
 I created programs that imitates `curl` as a subject.
 `curl` is a multi-protocol acquisition program with 229 options.
@@ -146,3 +149,8 @@ At a glance
 
 
 ## What do you think? :octocat:
+
+[//]: # (badges)
+
+[rustc-image]: https://img.shields.io/badge/rustc-1.56+-blue.svg
+[license-image]: https://img.shields.io/badge/license-Apache2.0/MIT-blue.svg
