@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 * reformat `CHANGELOG.md`
+* update benchmark results
 
 
 ## [0.1.17] (2023-01-02)

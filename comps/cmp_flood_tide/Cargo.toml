@@ -38,7 +38,8 @@ was_long = ["flood-tide/was_long"]
 [dependencies]
 optcolorwhen = { path="../common/optcolorwhen" }
 anyhow = "1.0"
-flood-tide = { version="=0.2.6", default-features=false, features=["stop_at_mm"] }
+#flood-tide = { version="=0.2.8", default-features=false, features=["stop_at_mm"] }
+flood-tide = { git="https://github.com/aki-akaguma/flood-tide.git", default-features=false, features=["stop_at_mm"] }
 #flood-tide = { path="../../../../lib/flood-tide", default-features=false, features=["stop_at_mm"] }
 
 [dev-dependencies]
