@@ -1,6 +1,6 @@
 [package]
 name = "cmp_cmdopts_parsing"
-version = "0.1.17"
+version = "0.1.18"
 authors = ["aki <aki.akaguma@hotmail.com>"]
 description = "compare command option parser"
 keywords = ["parse", "option", "command", "flag", "research"]
@@ -17,6 +17,7 @@ members = [
     "comps/cmp_args",
     "comps/cmp_clap",
     "comps/cmp_clap3",
+    "comps/cmp_clap4",
     "comps/cmp_commander",
     "comps/cmp_docopt",
     "comps/cmp_flood_tide",

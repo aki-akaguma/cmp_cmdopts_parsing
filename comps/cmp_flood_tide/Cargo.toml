@@ -44,5 +44,5 @@ flood-tide = { git="https://github.com/aki-akaguma/flood-tide.git", default-feat
 
 [dev-dependencies]
 exec-target-a = { path="../common/exec-target-a" }
-criterion = "0.4"
-criterion-cycles-per-byte = "0.4"
+criterion = "0.5"
+criterion-cycles-per-byte = "0.5"

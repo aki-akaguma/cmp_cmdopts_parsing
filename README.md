@@ -7,13 +7,34 @@ I compared different CLI(Command Line Interface) parsers.
 I created programs that imitates `curl` as a subject.
 `curl` is a multi-protocol acquisition program with 229 options.
 This benchmark program passes 5 flags, 4 options and 1 argument.
-The compile option is `--relese` and `LTS=false` is specified.
+The compile option is `--relese` and `LTO=fat` is specified.
 
 
 ## Benchmark Results
 
 I benchmarked various command line parsers with commands that emulate `curl` with 229 options.
 At a glance
+
+- compiled by rustc 1.72.0 (5680fa18f 2023-08-23)
+
+|       `name`       |   `bench`   | `.text`  |  `Δ bench`  | `Δ .text` |
+|:-------------------|------------:|---------:|------------:|---------:|
+| cmp_null_void      |    1.333 kc |  373 kib |    0.000 kc |    0 kib |
+| cmp_flood_tide     |    5.826 kc |  411 kib |    4.493 kc |   37 kib |
+| cmp_pure_rust      |    7.713 kc |  427 kib |    6.380 kc |   53 kib |
+| cmp_gumdrop        |    8.636 kc |  479 kib |    7.302 kc |  106 kib |
+| cmp_argh           |   21.193 kc |  447 kib |   19.859 kc |   73 kib |
+| cmp_pico_args      |   38.556 kc |  455 kib |   37.223 kc |   81 kib |
+| cmp_rustop         |  409.413 kc |  510 kib |  408.080 kc |  136 kib |
+| cmp_clap           |  411.300 kc |  844 kib |  409.967 kc |  471 kib |
+| cmp_clap3          |  497.407 kc |  876 kib |  496.073 kc |  502 kib |
+| cmp_structopt      |  508.399 kc |  946 kib |  507.065 kc |  572 kib |
+| cmp_getopts        |  702.778 kc |  451 kib |  701.445 kc |   77 kib |
+| cmp_commander      |  714.885 kc |  466 kib |  713.551 kc |   92 kib |
+| cmp_lapp           | 1126.062 kc |  510 kib | 1124.729 kc |  136 kib |
+| cmp_clap4          | 1327.901 kc |  985 kib | 1326.568 kc |  611 kib |
+| cmp_args           | 2056.907 kc |  484 kib | 2055.574 kc |  110 kib |
+| cmp_app            | 2247.577 kc |  666 kib | 2246.244 kc |  292 kib |
 
 - compiled by rustc 1.66.0 (69f9c33d7 2022-12-12)
 

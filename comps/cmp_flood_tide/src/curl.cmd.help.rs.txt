@@ -65,7 +65,7 @@ const OPTIONS_TEXT: &str = r"Options:
       --happy-eyeballs-timeout-ms <milliseconds>    How long to wait in milliseconds for IPv6 before trying IPv4
       --haproxy-protocol    Send HAProxy PROXY protocol v1 header
   -I, --head                Show document info only
-  -h, --header <header/@file>   Pass custom header(s) to server
+      --header <header/@file>   Pass custom header(s) to server
       --hostpubmd5 <md5>    Acceptable MD5 hash of the host public key
       --http0.9             Allow HTTP 0.9 responses
   -0, --http1.0             Use HTTP 1.0
@@ -232,7 +232,7 @@ const OPTIONS_TEXT: &str = r"Options:
 ";
 
 #[repr(u8)]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Eq)]
 enum CmdOp {
     AbstractUnixSocket,
     AltSvc,
@@ -543,7 +543,7 @@ const OPT_ARY: [Opt;229] = [
     Opt { sho: 0u8,  lon: "happy-eyeballs-timeout-ms",has: Arg::Yes, num: CmdOp::HappyEyeballsTimeoutMs.to(), },
     Opt { sho: 0u8,  lon: "haproxy-protocol",has: Arg::No,  num: CmdOp::HaproxyProtocol.to(), },
     Opt { sho: b'I', lon: "head",          has: Arg::No,  num: CmdOp::Head.to(), },
-    Opt { sho: b'h', lon: "header",        has: Arg::Yes, num: CmdOp::Header.to(), },
+    Opt { sho: 0u8,  lon: "header",        has: Arg::Yes, num: CmdOp::Header.to(), },
     Opt { sho: b'H', lon: "help",          has: Arg::No,  num: CmdOp::Help.to(), },
     Opt { sho: 0u8,  lon: "hostpubmd5",    has: Arg::Yes, num: CmdOp::Hostpubmd5.to(), },
     Opt { sho: 0u8,  lon: "http0.9",       has: Arg::No,  num: CmdOp::Http0_9.to(), },
@@ -710,8 +710,8 @@ const OPT_ARY: [Opt;229] = [
 ];
 
 #[rustfmt::skip]
-const OPT_ARY_SHO_IDX: [(u8,usize);59] = [
-(b'#',126),(b'0',69),(b'1',210),(b'2',194),(b'3',195),(b'4',78),(b'6',79),(b':',104),(b'A',224),(b'B',222),(b'C',16),(b'D',38),(b'E',7),(b'F',47),(b'G',60),(b'H',66),(b'I',64),(b'J',164),(b'K',13),(b'L',89),(b'M',95),(b'N',106),(b'O',165),(b'P',54),(b'Q',159),(b'R',167),(b'S',178),(b'T',220),(b'U',155),(b'V',226),(b'X',168),(b'Y',188),(b'Z',116),(b'a',3),(b'b',17),(b'c',18),(b'd',22),(b'e',163),(b'f',44),(b'g',61),(b'h',65),(b'i',75),(b'j',80),(b'k',76),(b'l',87),(b'm',98),(b'n',101),(b'o',115),(b'p',157),(b'q',29),(b'r',161),(b's',179),(b't',201),(b'u',223),(b'v',225),(b'w',227),(b'x',130),(b'y',189),(b'z',204),];
+const OPT_ARY_SHO_IDX: [(u8,usize);58] = [
+(b'#',126),(b'0',69),(b'1',210),(b'2',194),(b'3',195),(b'4',78),(b'6',79),(b':',104),(b'A',224),(b'B',222),(b'C',16),(b'D',38),(b'E',7),(b'F',47),(b'G',60),(b'H',66),(b'I',64),(b'J',164),(b'K',13),(b'L',89),(b'M',95),(b'N',106),(b'O',165),(b'P',54),(b'Q',159),(b'R',167),(b'S',178),(b'T',220),(b'U',155),(b'V',226),(b'X',168),(b'Y',188),(b'Z',116),(b'a',3),(b'b',17),(b'c',18),(b'd',22),(b'e',163),(b'f',44),(b'g',61),(b'i',75),(b'j',80),(b'k',76),(b'l',87),(b'm',98),(b'n',101),(b'o',115),(b'p',157),(b'q',29),(b'r',161),(b's',179),(b't',201),(b'u',223),(b'v',225),(b'w',227),(b'x',130),(b'y',189),(b'z',204),];
 
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct CmdOptConf {

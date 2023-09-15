@@ -9,6 +9,7 @@ for nm in $NAMES; do
   ( cd "comps/$nm" && {
     taskset --cpu-list 2 \
     env -u CARGO_PROFILE_RELEASE_OPT_LEVEL -u CARGO_PROFILE_RELEASE_CODEGEN_UNITS -u CARGO_PROFILE_RELEASE_PANIC \
+      CARGO_PROFILE_BENCH_LTO="fat" \
       cargo bench --bench bench-$nm-one -- --noplot
       #
       #-u RUSTC_WRAPPER

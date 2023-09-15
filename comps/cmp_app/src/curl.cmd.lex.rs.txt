@@ -132,6 +132,8 @@
         .long("haproxy-protocol").help("Send HAProxy PROXY protocol v1 header"))
     .opt(Opt::new("head", &mut conf.flg_head).optional()
         .short('I').long("head").help("Show document info only"))
+    .opt(Opt::new("header", &mut conf.opt_header).optional()
+        .long("header").help("Pass custom header(s) to server"))
     .opt(Opt::new("hostpubmd5", &mut conf.opt_hostpubmd5).optional()
         .long("hostpubmd5").help("Acceptable MD5 hash of the host public key"))
     .opt(Opt::new("http0.9", &mut conf.flg_http0_9).optional()

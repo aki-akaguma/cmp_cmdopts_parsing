@@ -67,7 +67,7 @@
     .arg(Arg::with_name("happy-eyeballs-timeout-ms").long("happy-eyeballs-timeout-ms").help("How long to wait in milliseconds for IPv6 before trying IPv4").takes_value(true).empty_values(false))
     .arg(Arg::with_name("haproxy-protocol").long("haproxy-protocol").help("Send HAProxy PROXY protocol v1 header"))
     .arg(Arg::with_name("head").short('I').long("head").help("Show document info only"))
-    .arg(Arg::with_name("header").short('h').long("header").help("Pass custom header(s) to server").takes_value(true).empty_values(false))
+    .arg(Arg::with_name("header").long("header").help("Pass custom header(s) to server").takes_value(true).empty_values(false))
     .arg(Arg::with_name("hostpubmd5").long("hostpubmd5").help("Acceptable MD5 hash of the host public key").takes_value(true).empty_values(false))
     .arg(Arg::with_name("http0.9").long("http0.9").help("Allow HTTP 0.9 responses"))
     .arg(Arg::with_name("http1.0").short('0').long("http1.0").help("Use HTTP 1.0"))

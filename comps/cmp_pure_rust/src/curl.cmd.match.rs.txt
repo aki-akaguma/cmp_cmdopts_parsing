@@ -195,7 +195,7 @@ match cur_s {
     "-I" | "--head" => {
         conf.flg_head = true;
     }
-    "-h" | "--header" => {
+    "--header" => {
         conf.opt_header = value_to_string(cur_s, cursor.next())?;
     }
     "--hostpubmd5" => {

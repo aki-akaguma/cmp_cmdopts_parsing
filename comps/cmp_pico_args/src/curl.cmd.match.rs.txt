@@ -260,7 +260,7 @@
     }
     conf.flg_haproxy_protocol = pico_args.contains("--haproxy-protocol");
     conf.flg_head = pico_args.contains(["-I", "--head"]);
-    let x = pico_args.opt_value_from_str(["-h", "--header"]);
+    let x = pico_args.opt_value_from_str("--header");
     if let Ok(None) = x {
         // noting todo
     } else {

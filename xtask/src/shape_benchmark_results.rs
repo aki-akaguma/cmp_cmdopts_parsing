@@ -2,13 +2,13 @@ use anyhow::Context;
 use std::io::BufRead;
 
 pub fn run(_program: &str, _args: &[&str]) -> anyhow::Result<()> {
-    let mut bench_vec = get_bench("z.bench-release.curl.log")?;
-    set_size(&mut bench_vec, "z.size-release.curl.log")?;
+    let mut bench_vec = get_bench("z.bench-release.curl.log", "::curl::")?;
+    set_size(&mut bench_vec, "z.size-release.curl.log", "-curl")?;
     output(bench_vec)?;
     //
-    //let mut bench_vec = get_bench("z.bench-release-s.curl.log")?;
-    //set_size(&mut bench_vec, "z.size-release.curl.log")?;
-    //output(bench_vec)?;
+    let mut bench_vec = get_bench("z.bench-release.one.log", "::one::")?;
+    set_size(&mut bench_vec, "z.size-release.one.log", "-one")?;
+    output(bench_vec)?;
     //
     Ok(())
 }
@@ -62,7 +62,7 @@ pub struct BenchStr {
     pub oh_size: u64,   // bytes
 }
 
-fn set_size(bench_vec: &mut Vec<BenchStr>, in_file: &str) -> anyhow::Result<()> {
+fn set_size(bench_vec: &mut Vec<BenchStr>, in_file: &str, suffix: &str) -> anyhow::Result<()> {
     let mut base_time = 0f64;
     let mut base_size = 0u64;
     let re_1 = regex::Regex::new(r"^ *(\d+)\t.*\t([^ ]+)$").unwrap();
@@ -76,8 +76,8 @@ fn set_size(bench_vec: &mut Vec<BenchStr>, in_file: &str) -> anyhow::Result<()> 
             //  934281	  26312	    736	 961329	  eab31	cmp_structopt-curl
             let size_s = &caps[1];
             let name_s = &caps[2];
-            let name = if name_s.ends_with("-curl") {
-                &name_s[0..(name_s.len() - 5)]
+            let name = if name_s.ends_with(suffix) {
+                &name_s[0..(name_s.len() - suffix.len())]
             } else {
                 name_s
             };
@@ -104,7 +104,7 @@ fn set_size(bench_vec: &mut Vec<BenchStr>, in_file: &str) -> anyhow::Result<()> 
     Ok(())
 }
 
-fn get_bench(in_file: &str) -> anyhow::Result<Vec<BenchStr>> {
+fn get_bench(in_file: &str, suffix: &str) -> anyhow::Result<Vec<BenchStr>> {
     let mut vec_benchstr: Vec<BenchStr> = Vec::new();
     //
     let re_1 =
@@ -121,7 +121,7 @@ fn get_bench(in_file: &str) -> anyhow::Result<Vec<BenchStr>> {
             // cmp_structopt::curl::   time:   [302.50 us 302.87 us 303.34 us]
             // cmp_structopt::curl::   time:   [714991.6559 cycles 715483.2743 cycles 716029.3928 cycles]
             vec_benchstr.push(BenchStr {
-                name: normalize_name(&caps[1])?,
+                name: normalize_name(&caps[1], suffix)?,
                 time: normalize_time(&caps[2], &caps[3])?,
                 is_cycle: if &caps[3] == "cycles" { true } else { false },
                 ..BenchStr::default()
@@ -133,7 +133,7 @@ fn get_bench(in_file: &str) -> anyhow::Result<Vec<BenchStr>> {
     Ok(vec_benchstr)
 }
 
-fn normalize_name(name_s: &str) -> anyhow::Result<String> {
+fn normalize_name(name_s: &str, suffix: &str) -> anyhow::Result<String> {
     fn strip_prefix<'a, 'b>(x: &'a str, prefix: &'b str) -> Option<&'a str> {
         #[cfg(not(has_not_strip_prefix))]
         {
@@ -162,7 +162,7 @@ fn normalize_name(name_s: &str) -> anyhow::Result<String> {
             }
         }
     }
-    let name_s = if let Some(x) = strip_suffix(name_s, "::curl::") {
+    let name_s = if let Some(x) = strip_suffix(name_s, suffix) {
         x
     } else {
         name_s
@@ -180,6 +180,7 @@ fn normalize_time(num_s: &str, unit_s: &str) -> anyhow::Result<f64> {
     let unit: f64 = match unit_s {
         "ms" => 0.001,
         "us" => 0.000001,
+        "µs" => 0.000001,
         "ns" => 0.000000001,
         "ps" => 0.000000000001,
         "cycles" => 1.0,

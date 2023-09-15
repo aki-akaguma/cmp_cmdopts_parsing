@@ -1,0 +1,10 @@
+[package]
+name = "cmp_clap4_xtask"
+version = "0.1.0"
+authors = ["aki <aki.akaguma@hotmail.com>"]
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0"
+optstr-curl = { path="../../common/optstr-curl" }
+update-file = { path="../../common/update-file" }

@@ -65,7 +65,7 @@
     aargs.option("", "happy-eyeballs-timeout-ms", "How long to wait in milliseconds for IPv6 before trying IPv4", "<>", Occur::Optional,None);
     aargs.flag("", "haproxy-protocol", "Send HAProxy PROXY protocol v1 header");
     aargs.flag("I", "head", "Show document info only");
-    aargs.option("h", "header", "Pass custom header(s) to server", "<>", Occur::Optional,None);
+    aargs.option("", "header", "Pass custom header(s) to server", "<>", Occur::Optional,None);
     aargs.option("", "hostpubmd5", "Acceptable MD5 hash of the host public key", "<>", Occur::Optional,None);
     aargs.flag("", "http0.9", "Allow HTTP 0.9 responses");
     aargs.flag("0", "http1.0", "Use HTTP 1.0");

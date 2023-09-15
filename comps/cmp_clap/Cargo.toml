@@ -31,10 +31,11 @@ optcolorwhen = { path="../common/optcolorwhen" }
 #clap = "=2.33.3"
 clap = "=2.34.0"
 #clap = "=3.2.6"
+#clap = "=4.4.3"
 anyhow = "1.0"
 optpaerr-a = { path="../common/optpaerr-a", features=["option_argument","argument"] }
 
 [dev-dependencies]
 exec-target-a = { path="../common/exec-target-a" }
-criterion = "0.4"
-criterion-cycles-per-byte = "0.4"
+criterion = "0.5"
+criterion-cycles-per-byte = "0.5"

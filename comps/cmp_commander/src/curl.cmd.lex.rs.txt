@@ -70,7 +70,7 @@
     .option_int("--happyeyeballstimeoutms [value]", "How long to wait in milliseconds for IPv6 before trying IPv4", None)
     .option("--haproxyprotocol", "Send HAProxy PROXY protocol v1 header", None)
     .option("-I, --head", "Show document info only", None)
-    .option_str("-h, --header [value]", "Pass custom header(s) to server", None)
+    .option_str("--header [value]", "Pass custom header(s) to server", None)
     .option_str("--hostpubmd5 [value]", "Acceptable MD5 hash of the host public key", None)
     .option("--http0.9", "Allow HTTP 0.9 responses", None)
     .option("-0, --http1.0", "Use HTTP 1.0", None)

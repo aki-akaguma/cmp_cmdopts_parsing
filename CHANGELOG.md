@@ -5,14 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] *
+## [Unreleased]
+
+
+## [0.1.18] (2023-09-16)
 ### Added
 * badges into `README.md`
+* added `cmp_clap4` into `comp`
 
 ### Changed
 * reformat `CHANGELOG.md`
 * update benchmark results
+* update crates: criterion(0.5), clap(4.4.3), ...
 
+### Removed
+* remove short option: `-h` of curl command
 
 ## [0.1.17] (2023-01-02)
 ### Changed
@@ -106,7 +113,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 0.1.1 (2020-12-04)
 * first commit
 
-[Unreleased]: https://github.com/aki-akaguma/cmp_cmdopts_parsing/compare/v0.1.17..HEAD
+[Unreleased]: https://github.com/aki-akaguma/cmp_cmdopts_parsing/compare/v0.1.18..HEAD
+[0.1.18]: https://github.com/aki-akaguma/cmp_cmdopts_parsing/compare/v0.1.17..v0.1.18
+[0.1.17]: https://github.com/aki-akaguma/cmp_cmdopts_parsing/compare/v0.1.16..v0.1.17
 [0.1.16]: https://github.com/aki-akaguma/cmp_cmdopts_parsing/compare/v0.1.15..v0.1.16
 [0.1.15]: https://github.com/aki-akaguma/cmp_cmdopts_parsing/compare/v0.1.14..v0.1.15
 [0.1.14]: https://github.com/aki-akaguma/cmp_cmdopts_parsing/compare/v0.1.13..v0.1.14

@@ -65,7 +65,7 @@
     opts.optopt("", "happy-eyeballs-timeout-ms", "How long to wait in milliseconds for IPv6 before trying IPv4", "<>");
     opts.optflag("", "haproxy-protocol", "Send HAProxy PROXY protocol v1 header");
     opts.optflag("I", "head", "Show document info only");
-    opts.optopt("h", "header", "Pass custom header(s) to server", "<>");
+    opts.optopt("", "header", "Pass custom header(s) to server", "<>");
     opts.optopt("", "hostpubmd5", "Acceptable MD5 hash of the host public key", "<>");
     opts.optflag("", "http0.9", "Allow HTTP 0.9 responses");
     opts.optflag("0", "http1.0", "Use HTTP 1.0");

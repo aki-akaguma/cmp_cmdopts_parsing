@@ -24,6 +24,7 @@ fn main() -> anyhow::Result<()> {
         "cmp_args" => cmp_args_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
         "cmp_clap" => cmp_clap_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
         "cmp_clap3" => cmp_clap3_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
+        "cmp_clap4" => cmp_clap4_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
         "cmp_commander" => cmp_commander_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
         "cmp_docopt" => cmp_docopt_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
         "cmp_flood_tide" => cmp_flood_tide_xtask::run(&format!("{} {}", program, cmd), &env_args)?,
@@ -99,6 +100,7 @@ pub fn all_run(program: &str, env_args: &[&str]) -> anyhow::Result<()> {
     cmp_args_xtask::run(&format!("{} {}", program, "cmp_args"), &env_args)?;
     cmp_clap_xtask::run(&format!("{} {}", program, "cmp_clap"), &env_args)?;
     cmp_clap3_xtask::run(&format!("{} {}", program, "cmp_clap3"), &env_args)?;
+    cmp_clap4_xtask::run(&format!("{} {}", program, "cmp_clap4"), &env_args)?;
     cmp_commander_xtask::run(&format!("{} {}", program, "cmp_commander"), &env_args)?;
     cmp_docopt_xtask::run(&format!("{} {}", program, "cmp_docopt"), &env_args)?;
     cmp_flood_tide_xtask::run(&format!("{} {}", program, "cmp_docopt"), &env_args)?;

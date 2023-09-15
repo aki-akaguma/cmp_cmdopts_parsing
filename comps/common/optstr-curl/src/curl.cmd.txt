@@ -64,7 +64,7 @@ Options:
       --happy-eyeballs-timeout-ms <milliseconds>    How long to wait in milliseconds for IPv6 before trying IPv4
       --haproxy-protocol    Send HAProxy PROXY protocol v1 header
   -I, --head                Show document info only
-  -h, --header <header/@file>   Pass custom header(s) to server
+      --header <header/@file>   Pass custom header(s) to server
       --hostpubmd5 <md5>    Acceptable MD5 hash of the host public key
       --http0.9             Allow HTTP 0.9 responses
   -0, --http1.0             Use HTTP 1.0

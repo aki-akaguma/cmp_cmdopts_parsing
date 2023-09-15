@@ -34,5 +34,5 @@ optpaerr-a = { path="../common/optpaerr-a", features=["option_argument"] }
 
 [dev-dependencies]
 exec-target-a = { path="../common/exec-target-a" }
-criterion = "0.4"
-criterion-cycles-per-byte = "0.4"
+criterion = "0.5"
+criterion-cycles-per-byte = "0.5"
