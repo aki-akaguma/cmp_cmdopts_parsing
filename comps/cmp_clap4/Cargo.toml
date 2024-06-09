@@ -28,7 +28,7 @@ harness = false
 
 [dependencies]
 optcolorwhen = { path="../common/optcolorwhen" }
-clap = "=4.4.3"
+clap = "=4.5.6"
 anyhow = "1.0"
 optpaerr-a = { path="../common/optpaerr-a", features=["option_argument","argument"] }
 
