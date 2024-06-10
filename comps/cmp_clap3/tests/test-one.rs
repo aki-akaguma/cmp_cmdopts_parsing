@@ -1,27 +1,26 @@
 use exec_target_a::exec_target;
 
-const TARGET_EXE_PATH: &'static str = "../../target/debug/cmp_clap-one";
+const TARGET_EXE_PATH: &'static str = "../../target/debug/cmp_clap3-one";
 
 macro_rules! help_msg {
     () => {
         concat!(
-            "cmp_clap 0.1.1\n\n",
+            "cmp_clap3 0.1.1\n\n",
             "USAGE:\n",
-            "    cmp_clap-one [FLAGS] [OPTIONS] <input> [output]\n\n",
-            "FLAGS:\n",
-            "    -d, --debug      Activate debug mode\n",
-            "    -h, --help       Prints help information\n",
-            "    -V, --version    Prints version information\n",
-            "    -v, --verbose    Verbose mode. -vv is more verbose\n\n",
+            "    cmp_clap3-one [OPTIONS] <input> [output]\n\n",
+            "ARGS:\n",
+            "    <input>     Input file\n",
+            "    <output>    Output file, stdout if not present\n\n",
             "OPTIONS:\n",
+            "    -c, --config <path>    Give a path string argument\n",
             "        --color <when>     Use markers to highlight\n",
             "                           <when> is \'always\', \'never\',\n",
             "                           or \'auto\' [default: auto]\n",
-            "    -c, --config <path>    Give a path string argument\n",
-            "    -s, --speed <speed>    Set speed [default: 42.0]\n\n",
-            "ARGS:\n",
-            "    <input>     Input file\n",
-            "    <output>    Output file, stdout if not present\n"
+            "    -d, --debug            Activate debug mode\n",
+            "    -h, --help             Print help information\n",
+            "    -s, --speed <speed>    Set speed [default: 42.0]\n",
+            "    -v, --verbose          Verbose mode. -vv is more verbose\n",
+            "    -V, --version          Print version information\n",
         )
     };
 }
@@ -34,7 +33,7 @@ macro_rules! try_help_msg {
 
 macro_rules! version_msg {
     () => {
-        "cmp_clap 0.1.1\n"
+        "cmp_clap3 0.1.1\n"
     };
 }
 
@@ -64,15 +63,16 @@ fn test_full_options() {
     #[rustfmt::skip]
     let oup = exec_target(
         TARGET_EXE_PATH,
-        &["-d", "-vv", "-s", "123", "-c", "file.conf", "inp", "oup"],
+        &["-d", "-v", "-s", "123", "-c", "file.conf", "inp", "oup"],
     );
+    assert_eq!(oup.stderr, "");
     assert_eq!(oup.status.success(), true);
     assert_eq!(
         oup.stdout,
         concat!(
             "CmdOptConf {",
             " flag_debug: true,",
-            " cnt_verbose: 2,",
+            " cnt_verbose: 1,",
             " opt_speed: 123.0,",
             " opt_color: Auto,",
             " opt_config: Some(\"file.conf\"),",
@@ -89,16 +89,17 @@ fn test_full_options_long() {
     #[rustfmt::skip]
     let oup = exec_target(
         TARGET_EXE_PATH,
-        &[ "--debug", "--verbose", "--verbose", "--speed", "123", "--color",
+        &[ "--debug", "--verbose", "--speed", "123", "--color",
             "never", "--config", "dir/file.conf", "inp", "oup" ],
     );
+    assert_eq!(oup.stderr, "");
     assert_eq!(oup.status.success(), true);
     assert_eq!(
         oup.stdout,
         concat!(
             "CmdOptConf {",
             " flag_debug: true,",
-            " cnt_verbose: 2,",
+            " cnt_verbose: 1,",
             " opt_speed: 123.0,",
             " opt_color: Never,",
             " opt_config: Some(\"dir/file.conf\"),",
@@ -154,7 +155,7 @@ fn test_void_args() {
             "error: The following required arguments were not provided:\n",
             "    <input>\n\n",
             "USAGE:\n",
-            "    cmp_clap-one <input> --color <when> --speed <speed>\n\n",
+            "    cmp_clap3-one [OPTIONS] <input> [output]\n\n",
             try_help_msg!()
         )
     );
@@ -170,8 +171,9 @@ fn test_invalid_flag() {
         concat!(
             "error: Found argument \'-x\' which wasn\'t expected,",
             " or isn\'t valid in this context\n\n",
+            "\tIf you tried to supply `-x` as a value rather than a flag, use `-- -x`\n\n",
             "USAGE:\n",
-            "    cmp_clap-one [FLAGS] [OPTIONS] <input> [output]\n\n",
+            "    cmp_clap3-one [OPTIONS] <input> [output]\n\n",
             try_help_msg!()
         )
     );
@@ -184,7 +186,9 @@ fn test_invalid_float() {
     assert_eq!(oup.stdout, "");
     assert_eq!(
         oup.stderr,
-        concat!("error: Invalid value for \'--speed <speed>\': invalid float literal\n",)
+        concat!("error: Invalid value \"12x\" for \'--speed <speed>\': invalid float literal\n\n",
+            try_help_msg!()
+        )
     );
 }
 
@@ -195,7 +199,9 @@ fn test_invalid_color() {
     assert_eq!(oup.stdout, "");
     assert_eq!(
         oup.stderr,
-        concat!("error: Invalid value for \'--color <when>\': can not parse \'nev\'\n",)
+        concat!("error: Invalid value \"nev\" for \'--color <when>\': can not parse \'nev\'\n\n",
+            try_help_msg!()
+        )
     );
 }
 
@@ -208,8 +214,6 @@ fn test_invalid_color2() {
         oup.stderr,
         concat!(
             "error: The argument \'--color <when>\' requires a value but none was supplied\n\n",
-            "USAGE:\n",
-            "    cmp_clap-one [FLAGS] [OPTIONS] <input> [output]\n\n",
             try_help_msg!()
         )
     );
@@ -228,10 +232,11 @@ fn test_abbreviate_options() {
     assert_eq!(
         oup.stderr,
         concat!(
-            "error: Found argument \'--deb\' which wasn\'t expected, or isn\'t valid in this context\n",
-            "\tDid you mean \u{1b}[32m--\u{1b}[0m\u{1b}[32mdebug\u{1b}[0m?\n\n",
+            "error: Found argument \'--deb\' which wasn\'t expected, or isn\'t valid in this context\n\n",
+            "\tDid you mean '--debug'?\n\n",
+            "\tIf you tried to supply `--deb` as a value rather than a flag, use `-- --deb`\n\n",
             "USAGE:\n",
-            "    cmp_clap-one <input> --debug\n\n", try_help_msg!())
+            "    cmp_clap3-one --debug <input>\n\n", try_help_msg!())
     );
 }
 
@@ -244,9 +249,10 @@ fn test_ambiguous_options() {
     assert_eq!(
         oup.stderr,
         concat!(
-            "error: Found argument \'--ver\' which wasn\'t expected, or isn\'t valid in this context\n",
-            "\tDid you mean \u{1b}[32m--\u{1b}[0m\u{1b}[32mverbose\u{1b}[0m?\n\n",
+            "error: Found argument \'--ver\' which wasn\'t expected, or isn\'t valid in this context\n\n",
+            "\tDid you mean '--verbose'?\n\n",
+            "\tIf you tried to supply `--ver` as a value rather than a flag, use `-- --ver`\n\n",
             "USAGE:\n",
-            "    cmp_clap-one <input> --verbose\n\n", try_help_msg!())
+            "    cmp_clap3-one --verbose <input>\n\n", try_help_msg!())
     );
 }

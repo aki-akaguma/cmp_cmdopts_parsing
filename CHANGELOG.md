@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * update crates: regex (1.10), clap, flood-tied, rustop
 * rename: `cmp_clap` to `cmp_clap2`
 
+## Fixed
+* clippy: clippy::derivable_impls
+* clippy: clippy::useless_conversion
+
 
 ## [0.1.18] (2023-09-16)
 ### Added

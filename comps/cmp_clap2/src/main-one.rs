@@ -1,5 +1,5 @@
 fn main() {
-    match cmp_clap::one::create_conf() {
+    match cmp_clap2::one::create_conf() {
         Ok(args) => {
             println!("{:?}", args);
         }

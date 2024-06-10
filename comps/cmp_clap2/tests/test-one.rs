@@ -1,13 +1,13 @@
 use exec_target_a::exec_target;
 
-const TARGET_EXE_PATH: &'static str = "../../target/debug/cmp_clap-one";
+const TARGET_EXE_PATH: &'static str = "../../target/debug/cmp_clap2-one";
 
 macro_rules! help_msg {
     () => {
         concat!(
-            "cmp_clap 0.1.1\n\n",
+            "cmp_clap2 0.1.1\n\n",
             "USAGE:\n",
-            "    cmp_clap-one [FLAGS] [OPTIONS] <input> [output]\n\n",
+            "    cmp_clap2-one [FLAGS] [OPTIONS] <input> [output]\n\n",
             "FLAGS:\n",
             "    -d, --debug      Activate debug mode\n",
             "    -h, --help       Prints help information\n",
@@ -34,7 +34,7 @@ macro_rules! try_help_msg {
 
 macro_rules! version_msg {
     () => {
-        "cmp_clap 0.1.1\n"
+        "cmp_clap2 0.1.1\n"
     };
 }
 
@@ -154,7 +154,7 @@ fn test_void_args() {
             "error: The following required arguments were not provided:\n",
             "    <input>\n\n",
             "USAGE:\n",
-            "    cmp_clap-one <input> --color <when> --speed <speed>\n\n",
+            "    cmp_clap2-one <input> --color <when> --speed <speed>\n\n",
             try_help_msg!()
         )
     );
@@ -171,7 +171,7 @@ fn test_invalid_flag() {
             "error: Found argument \'-x\' which wasn\'t expected,",
             " or isn\'t valid in this context\n\n",
             "USAGE:\n",
-            "    cmp_clap-one [FLAGS] [OPTIONS] <input> [output]\n\n",
+            "    cmp_clap2-one [FLAGS] [OPTIONS] <input> [output]\n\n",
             try_help_msg!()
         )
     );
@@ -209,7 +209,7 @@ fn test_invalid_color2() {
         concat!(
             "error: The argument \'--color <when>\' requires a value but none was supplied\n\n",
             "USAGE:\n",
-            "    cmp_clap-one [FLAGS] [OPTIONS] <input> [output]\n\n",
+            "    cmp_clap2-one [FLAGS] [OPTIONS] <input> [output]\n\n",
             try_help_msg!()
         )
     );
@@ -231,7 +231,7 @@ fn test_abbreviate_options() {
             "error: Found argument \'--deb\' which wasn\'t expected, or isn\'t valid in this context\n",
             "\tDid you mean \u{1b}[32m--\u{1b}[0m\u{1b}[32mdebug\u{1b}[0m?\n\n",
             "USAGE:\n",
-            "    cmp_clap-one <input> --debug\n\n", try_help_msg!())
+            "    cmp_clap2-one <input> --debug\n\n", try_help_msg!())
     );
 }
 
@@ -247,6 +247,6 @@ fn test_ambiguous_options() {
             "error: Found argument \'--ver\' which wasn\'t expected, or isn\'t valid in this context\n",
             "\tDid you mean \u{1b}[32m--\u{1b}[0m\u{1b}[32mverbose\u{1b}[0m?\n\n",
             "USAGE:\n",
-            "    cmp_clap-one <input> --verbose\n\n", try_help_msg!())
+            "    cmp_clap2-one <input> --verbose\n\n", try_help_msg!())
     );
 }

@@ -1,12 +1,12 @@
 use exec_target_a::exec_target;
 
-const TARGET_EXE_PATH: &'static str = "../../target/debug/cmp_clap-curl";
+const TARGET_EXE_PATH: &'static str = "../../target/debug/cmp_clap3-curl";
 
 macro_rules! some_stdout {
     () => {
         concat!(
             "CmdOptConf {",
-            " opt_program: \"../../target/debug/cmp_clap-curl\",",
+            " opt_program: \"../../target/debug/cmp_clap3-curl\",",
             " opt_abstract_unix_socket: \"\",",
             " opt_alt_svc: \"\",",
             " flg_anyauth: false,",

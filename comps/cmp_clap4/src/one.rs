@@ -46,15 +46,14 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
                 .help("Set speed")
                 .default_value("42.0")
                 .num_args(1)
-                .value_parser(clap::value_parser!(f32))
-                //.takes_value(true)
-                //.empty_values(false)
-                /*
-                .validator(|x| match x.parse::<f32>() {
-                    Ok(_) => Ok(()),
-                    Err(err) => Err(err.to_string()),
-                }),
-                */
+                .value_parser(clap::value_parser!(f32)), //.takes_value(true)
+                                                         //.empty_values(false)
+                                                         /*
+                                                         .validator(|x| match x.parse::<f32>() {
+                                                             Ok(_) => Ok(()),
+                                                             Err(err) => Err(err.to_string()),
+                                                         }),
+                                                         */
         )
         .arg(
             Arg::new("color")
@@ -67,18 +66,17 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
                 ))
                 .default_value("auto")
                 .num_args(1)
-                .value_parser(["always", "auto", "never"])
-                //.takes_value(true)
-                //.empty_values(false)
-                /*
-                .validator(|x: &str| {
-                    let res: Result<OptColorWhen, OptColorWhenParseError> = FromStr::from_str(&x);
-                    match res {
-                        Ok(_) => Ok(()),
-                        Err(err) => Err(err.to_string()),
-                    }
-                }),
-                */
+                .value_parser(["always", "auto", "never"]), //.takes_value(true)
+                                                            //.empty_values(false)
+                                                            /*
+                                                            .validator(|x: &str| {
+                                                                let res: Result<OptColorWhen, OptColorWhenParseError> = FromStr::from_str(&x);
+                                                                match res {
+                                                                    Ok(_) => Ok(()),
+                                                                    Err(err) => Err(err.to_string()),
+                                                                }
+                                                            }),
+                                                            */
         )
         .arg(
             Arg::new("config")
@@ -86,16 +84,10 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
                 .long("config")
                 .value_name("path")
                 .help("Give a path string argument")
-                .num_args(1)
-                //.takes_value(true)
-                //.empty_values(false),
+                .num_args(1), //.takes_value(true)
+                              //.empty_values(false),
         )
-        .arg(
-            Arg::new("input")
-                .help("Input file")
-                .required(true)
-                .index(1),
-        )
+        .arg(Arg::new("input").help("Input file").required(true).index(1))
         .arg(
             Arg::new("output")
                 .help("Output file, stdout if not present")
@@ -131,12 +123,16 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
         },
         None => OptColorWhen::Auto,
     };
-    args.opt_config = matches.get_one::<String>("config").map(|s: &String| s.to_string());
+    args.opt_config = matches
+        .get_one::<String>("config")
+        .map(|s: &String| s.to_string());
     args.arg_input = match matches.get_one::<String>("input") {
         Some(x) => x.to_string(),
         None => "".to_string(),
     };
-    args.arg_output = matches.get_one::<String>("output").map(|s: &String| s.to_string());
+    args.arg_output = matches
+        .get_one::<String>("output")
+        .map(|s: &String| s.to_string());
     //
     Ok(args)
 }

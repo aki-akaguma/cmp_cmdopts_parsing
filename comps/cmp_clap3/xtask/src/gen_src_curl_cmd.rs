@@ -110,6 +110,7 @@ fn do_gen_src_lex(vec_optstr: &[OptStr]) -> anyhow::Result<String> {
     sss += r#"
 {
     App::new(env!("CARGO_PKG_NAME"))
+    .color(ColorChoice::Never)
     .version(env!("CARGO_PKG_VERSION"))
 "#;
     for rec in vec_optstr.iter() {

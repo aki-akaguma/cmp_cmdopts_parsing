@@ -1,4 +1,4 @@
-use clap::{App, Arg, ArgMatches};
+use clap::{App, Arg, ArgMatches, ColorChoice};
 use optpaerr_a::OptParseError;
 
 //----------------------------------------------------------------------

@@ -1,4 +1,4 @@
-use clap::{App, Arg};
+use clap::{App, Arg, ColorChoice};
 use optcolorwhen::OptColorWhen;
 use optcolorwhen::OptColorWhenParseError;
 use optpaerr_a::OptParseError;
@@ -22,6 +22,7 @@ pub struct CmdOptConf {
 #[inline(never)]
 pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdOptConf> {
     let app = App::new(env!("CARGO_PKG_NAME"))
+        .color(ColorChoice::Never)
         .version(env!("CARGO_PKG_VERSION"))
         .arg(
             Arg::with_name("debug")
@@ -33,7 +34,8 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
             Arg::with_name("verbose")
                 .short('v')
                 .long("verbose")
-                .multiple(true)
+                //.takes_value(true)
+                //.multiple(true)
                 .help("Verbose mode. -vv is more verbose"),
         )
         .arg(

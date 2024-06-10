@@ -1,8 +1,8 @@
 use criterion::{criterion_group, criterion_main, Criterion};
 use criterion_cycles_per_byte::CyclesPerByte;
 
-fn process_one(env_args: &[&str]) -> anyhow::Result<cmp_clap::curl::CmdOptConf> {
-    cmp_clap::curl::parse_cmdopts("prog", env_args)
+fn process_one(env_args: &[&str]) -> anyhow::Result<cmp_clap2::curl::CmdOptConf> {
+    cmp_clap2::curl::parse_cmdopts("prog", env_args)
 }
 
 fn criterion_benchmark(c: &mut Criterion<CyclesPerByte>) {
@@ -14,7 +14,7 @@ fn criterion_benchmark(c: &mut Criterion<CyclesPerByte>) {
         "http://url1.com"];
     let env_args = &env_args;
     //
-    let result_conf = cmp_clap::curl::CmdOptConf {
+    let result_conf = cmp_clap2::curl::CmdOptConf {
         opt_program: "prog".to_string(),
         flg_append: true,
         opt_connect_timeout: 50,
@@ -39,7 +39,7 @@ fn criterion_benchmark(c: &mut Criterion<CyclesPerByte>) {
         }
     }
     //
-    c.bench_function("cmp_clap::curl::", |b| {
+    c.bench_function("cmp_clap2::curl::", |b| {
         b.iter(|| {
             let _r = process_one(criterion::black_box(env_args));
         })

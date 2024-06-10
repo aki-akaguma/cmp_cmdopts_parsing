@@ -1,4 +1,4 @@
-use clap::{Arg, ArgMatches, ArgAction, Command};
+use clap::{Arg, ArgAction, ArgMatches, Command};
 use optpaerr_a::OptParseError;
 
 //----------------------------------------------------------------------
