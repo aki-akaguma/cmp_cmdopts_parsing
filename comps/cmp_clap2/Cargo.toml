@@ -1,15 +1,15 @@
 [package]
-name = "cmp_clap"
+name = "cmp_clap2"
 version = "0.1.1"
 authors = ["aki <aki.akaguma@hotmail.com>"]
 edition = "2021"
 
 [[bin]]
-name = "cmp_clap-one"
+name = "cmp_clap2-one"
 path = "src/main-one.rs"
 
 [[bin]]
-name = "cmp_clap-curl"
+name = "cmp_clap2-curl"
 path = "src/main-curl.rs"
 
 [[bench]]
@@ -17,12 +17,12 @@ name = "bench"
 harness = false
 
 [[bench]]
-name = "bench-cmp_clap-one"
+name = "bench-cmp_clap2-one"
 path = "benches/bench-one.rs"
 harness = false
 
 [[bench]]
-name = "bench-cmp_clap-curl"
+name = "bench-cmp_clap2-curl"
 path = "benches/bench-curl.rs"
 harness = false
 

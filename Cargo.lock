@@ -410,7 +410,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "cmp_clap"
+name = "cmp_clap2"
 version = "0.1.1"
 dependencies = [
  "anyhow",
@@ -420,6 +420,15 @@ dependencies = [
  "exec-target-a",
  "optcolorwhen",
  "optpaerr-a",
+]
+
+[[package]]
+name = "cmp_clap2_xtask"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "optstr-curl",
+ "update-file",
 ]
 
 [[package]]
@@ -459,15 +468,6 @@ dependencies = [
 
 [[package]]
 name = "cmp_clap4_xtask"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "optstr-curl",
- "update-file",
-]
-
-[[package]]
-name = "cmp_clap_xtask"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -1729,9 +1729,9 @@ dependencies = [
  "cmp_app_xtask",
  "cmp_argh_xtask",
  "cmp_args_xtask",
+ "cmp_clap2_xtask",
  "cmp_clap3_xtask",
  "cmp_clap4_xtask",
- "cmp_clap_xtask",
  "cmp_commander_xtask",
  "cmp_docopt_xtask",
  "cmp_flood_tide_xtask",

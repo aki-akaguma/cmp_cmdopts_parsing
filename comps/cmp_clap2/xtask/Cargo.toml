@@ -1,5 +1,5 @@
 [package]
-name = "cmp_clap_xtask"
+name = "cmp_clap2_xtask"
 version = "0.1.0"
 authors = ["aki <aki.akaguma@hotmail.com>"]
 edition = "2021"

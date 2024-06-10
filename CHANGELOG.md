@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 * rename: `config` to `config.toml`
-* update crates: clap, flood-tied, rustop
+* update crates: regex (1.10), clap, flood-tied, rustop
+* rename: `cmp_clap` to `cmp_clap2`
 
 
 ## [0.1.18] (2023-09-16)

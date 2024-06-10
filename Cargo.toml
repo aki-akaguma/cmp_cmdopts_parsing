@@ -15,7 +15,7 @@ members = [
     "comps/cmp_app",
     "comps/cmp_argh",
     "comps/cmp_args",
-    "comps/cmp_clap",
+    "comps/cmp_clap2",
     "comps/cmp_clap3",
     "comps/cmp_clap4",
     "comps/cmp_commander",

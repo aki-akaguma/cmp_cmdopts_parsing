@@ -3,7 +3,7 @@ cmp_null_void
 cmp_app
 cmp_argh
 cmp_args
-cmp_clap
+cmp_clap2
 cmp_clap3
 cmp_clap4
 cmp_commander

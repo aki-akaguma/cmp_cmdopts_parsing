@@ -6,13 +6,13 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0"
-regex = "1.5"
+regex = "1.10"
 
 cmp_null_void_xtask = { path="../comps/cmp_null_void/xtask" }
 cmp_app_xtask = { path="../comps/cmp_app/xtask" }
 cmp_argh_xtask = { path="../comps/cmp_argh/xtask" }
 cmp_args_xtask = { path="../comps/cmp_args/xtask" }
-cmp_clap_xtask = { path="../comps/cmp_clap/xtask" }
+cmp_clap2_xtask = { path="../comps/cmp_clap2/xtask" }
 cmp_clap3_xtask = { path="../comps/cmp_clap3/xtask" }
 cmp_clap4_xtask = { path="../comps/cmp_clap4/xtask" }
 cmp_commander_xtask = { path="../comps/cmp_commander/xtask" }
