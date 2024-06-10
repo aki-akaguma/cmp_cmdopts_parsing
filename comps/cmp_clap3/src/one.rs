@@ -65,7 +65,7 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
                 .takes_value(true)
                 .empty_values(false)
                 .validator(|x| {
-                    let res: Result<OptColorWhen, OptColorWhenParseError> = FromStr::from_str(&x);
+                    let res: Result<OptColorWhen, OptColorWhenParseError> = FromStr::from_str(x);
                     match res {
                         Ok(_) => Ok(()),
                         Err(err) => Err(err.to_string()),

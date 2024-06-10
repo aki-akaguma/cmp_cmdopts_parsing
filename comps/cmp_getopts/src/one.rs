@@ -92,7 +92,7 @@ pub fn parse_cmdopts(program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdOp
     args.opt_config = matches.opt_str("config");
     //
     if !matches.free.is_empty() {
-        args.arg_input = matches.free[0].clone();
+        args.arg_input.clone_from(&matches.free[0]);
         args.arg_output = if matches.free.len() > 1 {
             Some(matches.free[1].clone())
         } else {

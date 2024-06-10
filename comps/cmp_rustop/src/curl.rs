@@ -48,7 +48,7 @@ pub fn parse_cmdopts(program: &str, args: Vec<&str>) -> anyhow::Result<CmdOptCon
     //
     let rop = include!("curl.cmd.lex.rs.txt");
     //
-    let (ropa, _) = match rop.parse_args(args.into_iter()) {
+    let (ropa, _) = match rop.parse_args(args) {
         Ok(a) => a,
         Err(rustop::Error::Help(msg)) => {
             eprintln!("{}", msg);

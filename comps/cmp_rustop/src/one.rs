@@ -93,7 +93,7 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
             desc:"Output file name, stdout if not present";
     //}.parse_or_exit();
     };
-    let (args, _) = match a.parse_args(env_args.into_iter()) {
+    let (args, _) = match a.parse_args(env_args) {
         Ok(a) => a,
         Err(rustop::Error::Help(msg)) => {
             eprintln!("{}", msg);

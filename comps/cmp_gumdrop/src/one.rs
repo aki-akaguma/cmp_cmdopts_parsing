@@ -92,7 +92,7 @@ pub fn parse_cmdopts(_program: &str, env_args: Vec<&str>) -> anyhow::Result<CmdO
     };
     //
     if !opt.free.is_empty() {
-        args.arg_input = opt.free[0].clone();
+        args.arg_input.clone_from(&opt.free[0]);
         args.arg_output = if opt.free.len() > 1 {
             Some(opt.free[1].clone())
         } else {

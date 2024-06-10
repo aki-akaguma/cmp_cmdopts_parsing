@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Fixed
 * clippy: clippy::derivable_impls
 * clippy: clippy::useless_conversion
+* clippy: clippy::unnecessary_get_then_check
+* clippy: clippy::map_clone
+* clippy: clippy::assigning_clones
+* clippy: clippy::needless_borrow
+* clippy: clippy::question_mark
 
 
 ## [0.1.18] (2023-09-16)

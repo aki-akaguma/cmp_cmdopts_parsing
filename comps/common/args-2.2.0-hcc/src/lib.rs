@@ -192,7 +192,7 @@ impl Args {
 
     /// Returns a `bool` indicating whether or not a argument is present.
     pub fn has_value(&self, opt_name: &str) -> bool {
-        self.values.get(opt_name).is_some()
+        self.values.contains_key(opt_name)
     }
 
     /// Returns an iterator visiting all key-value pairs in alphabetical order.
@@ -410,7 +410,7 @@ impl Args {
     ///
     /// Returns `None` if no `Opt` corresponds to `opt_name`.
     pub fn get_option(&self, opt_name: &str) -> Option<Box<dyn Opt>> {
-        self.opts.get(opt_name).map(std::clone::Clone::clone)
+        self.opts.get(opt_name).cloned()
     }
 
     // Private instance methods

@@ -107,9 +107,7 @@ pub fn parse_cmdopts_0(a_prog_name: &str, args: &[&str]) -> Result<CmdOptConf, O
     //
     #[cfg(feature = "single_error")]
     {
-        if let Err(err) = r_errs {
-            return Err(err);
-        }
+        r_errs?;
         if let Some(free) = opt_free {
             if !free.is_empty() {
                 conf.arg_params = free;
